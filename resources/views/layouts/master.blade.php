@@ -53,7 +53,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         <i class="material-icons text-danger"></i> Logout </a>
                     </div>
                   </li>
-                </ul>
+                </ul> 
                 <nav class="nav">
                   <a href="#" class="nav-link nav-link-icon toggle-sidebar  d-inline d-lg-none text-center " data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
                     <i class="material-icons"></i>

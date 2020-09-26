@@ -7,7 +7,7 @@ use App\userbiodata;
 use App\UserKendaraan;
 use Illuminate\Http\Request;
 
-class UserbiodataController extends Controller
+class UserBiodataController extends Controller
 {
     public function userbiodata()
     {

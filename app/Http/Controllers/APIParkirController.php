@@ -112,8 +112,10 @@ class APIParkirController extends Controller
         return "#";
         
     }
-    function serParkirIoT($id_rfid, $idAlat, $lat, $lng){
+    function serParkirIoT($idAlat,$id_rfid, $lat, $lng){
+
         $data = UserJukir::all()->where("no_seri_alat",$idAlat)->first();
+
         $idJukir = $data->id;
 
         $dataKendaraan = UserKendaraan::all()->where("rfid_card",$id_rfid)->first();
@@ -133,7 +135,7 @@ class APIParkirController extends Controller
             $parkir->lat            = $lat;
             $parkir->lng            = $lng;
             $parkir->save();
-            return "*Parkir Masuk*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk." ".$dataKendaraan->seri." ".$dataKendaraan->warna."#";
+            return "*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk."*".$dataKendaraan->seri."*".$dataKendaraan->warna."*#";
         }else{
             $parkir = $data->first();
             $awal  = strtotime($parkir->tgl_masuk); //waktu awal
@@ -150,7 +152,7 @@ class APIParkirController extends Controller
             $parkir->stat_parkir    = "Sudah";
             $parkir->tgl_keluar = $date->format('Y-m-d H:i:s');
             $parkir->save();
-            return "*Parkir Keluar*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk." ".$dataKendaraan->seri." ".$dataKendaraan->warna."*".$biaya."#";
+            return "*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk."*".$dataKendaraan->seri."*".$dataKendaraan->warna."*".$biaya."*#";
         }
     }
 }

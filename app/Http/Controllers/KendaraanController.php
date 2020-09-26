@@ -13,10 +13,11 @@ class KendaraanController extends Controller
 {
     function index(){
         $jukir = session('id');
-        $data = Parkir::all()->where("jukir",$jukir)->where("stat_parkir","Parkir");
+        $data = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Parkir")->get();
         // return $data;
         $jenis = RefJenisKendaraan::all();
-        return view('kendaraan-parkir', compact('data','jenis'));
+        // return $data;
+        return view('jukir.parkir-terkini', compact('data','jenis'));
     }   
     function showJenis($id){
         
@@ -24,7 +25,7 @@ class KendaraanController extends Controller
         $data = Parkir::all()->where("jukir",$jukir)->where("stat_parkir","Parkir")->where("id_kendaraan",$id);
         $jenis = RefJenisKendaraan::all();
         // return $data->first()->UserKendaraan->RefJenisKendaraan1->id_ref_kendaraan;
-        return view('kendaraan-parkir-jenis', compact('data','jenis','id'));
+        return view('jukir.parkir-terkini', compact('data','jenis','id'));
 
 
         

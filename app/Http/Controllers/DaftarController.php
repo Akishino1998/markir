@@ -39,7 +39,7 @@ class DaftarController extends Controller
         $userBiodataJukir->id_jukir = $last_id;
         $userBiodataJukir->foto_ktp = $fileNameFotoKtp;
         $userBiodataJukir->save();
-        return redirect('/login')->with('alert','7');//tidak disetujui
+        return redirect('/jukir/login')->with('alert','7');//tidak disetujui
 
 
         

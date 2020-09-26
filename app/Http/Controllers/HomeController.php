@@ -23,6 +23,7 @@ class HomeController extends Controller
         $a=array();
         $b=array();
         $c=array();
+        // return $parkir;
         // return $parkir->first()->UserKendaraan->RefJenisKendaraan2;
         // return $jukir2;
         foreach($ref_jenis_kendaraan as $item){

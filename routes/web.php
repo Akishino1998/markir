@@ -13,26 +13,9 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return redirect('/dasboard');
-});
 
-Route::get('/logout',function(){
-    session()->flush();
-    return redirect("/login");
-});
 
-//auth
-Route::get('/login', 'AuthController@index');
-Route::post('/login', 'AuthController@login');
-Route::get("/daftar",'DaftarController@index');
-Route::post("/daftar",'DaftarController@store');
-Route::post("/checkUsernameUser",'DaftarController@checkUsernameUser');
 
-Route::get('/dasboard','DasboardController@index');
-
-Route::get('/parkir-terkini','KendaraanController@index');
-Route::get('/parkir-terkini/jenis/{id}','KendaraanController@showJenis');
 
 Route::get('/riwayat','RiwayatParkirController@index');
 Route::get('/riwayat/jenis/{id}','RiwayatParkirController@showJenis');
@@ -40,21 +23,45 @@ Route::get('/riwayat/jenis/{id}','RiwayatParkirController@showJenis');
 Route::post('riwayat/date','RiwayatParkirController@showDate');
 Route::post('riwayat/date/{id}','RiwayatParkirController@showDateJenis');
 
-Route::get('/biodata','AuthController@showBiodata');
-Route::get('/edit-biodata','AuthController@editBiodata');
-Route::POST('/update-biodata','AuthController@update');
 
-Route::get('/create-password', function(){
-    return password_hash ("123", PASSWORD_DEFAULT );
+
+Route::get('/create-password/{password}', function($password){
+    return password_hash ($password, PASSWORD_DEFAULT );
 });
-Route::get("/masukkan-seri-alat/{id}","AuthController@masukkan_seri_alat");
-Route::post("/masukkan-seri-alat/{id}","AuthController@Setmasukkan_seri_alat");
+
 
 Route::get("/setParkir","APIParkirController@setParkir");
 Route::post("/setParkir","APIParkirController@index2");
-Route::get("/setParkirIoT/{id_rfid}/{no_alat}/{lat}/{lng}","APIParkirController@serParkirIoT");
+Route::get("/s/{no_alat}/{id_rfid}/{lat}/{lng}","APIParkirController@serParkirIoT");
 Route::get("/setLokasi/{idAlat}/{lat}/{lng}","APIParkirController@lokasiKendaraan");
 
+
+Route::prefix('jukir')->group(function () {
+    Route::get('/login', 'AuthController@index');
+    Route::post('/login', 'AuthController@login');
+    Route::post("/daftar",'DaftarController@store');
+    Route::post("/checkUsernameUser",'DaftarController@checkUsernameUser');
+    Route::get("/masukkan-seri-alat/{id}","AuthController@masukkan_seri_alat");
+    Route::post("/masukkan-seri-alat/{id}","AuthController@Setmasukkan_seri_alat");
+
+    Route::get('/profile','AuthController@showBiodata');
+    Route::get('/edit-profile','AuthController@editBiodata');
+    Route::POST('/update-profile','AuthController@update');
+
+    Route::get('/jukir', function () {
+        return redirect('/dasboard');
+    });
+    Route::get('/logout',function(){
+        session()->flush();
+        return redirect("/jukir/login");
+    });
+    
+    Route::get('/','DasboardController@index');
+
+    Route::get('/parkir-terkini','KendaraanController@index');
+    Route::get('/parkir-terkini/jenis/{id}','KendaraanController@showJenis');
+
+});
 Route::prefix('admin')->group(function () {
         
     Route::get('/', function () {
