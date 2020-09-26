@@ -12,9 +12,10 @@ class RiwayatParkirController extends Controller
     function index(){
         $jukir = session('id');
         $jenis = RefJenisKendaraan::all();
-        $data = Parkir::all()->where("jukir",$jukir)->where("stat_parkir","Sudah");
+        $data = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Sudah")->get();
         // return $data->first()->UserKendaraan;
-        return view('riwayat',compact('jenis','jukir','data'));
+        // return $data->first()->UserKendaraan;
+        return view('jukir.riwayat-parkir',compact('jenis','jukir','data'));
 
     }
     function showJenis($id){

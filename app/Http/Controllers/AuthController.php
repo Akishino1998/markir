@@ -65,7 +65,7 @@ class AuthController extends Controller
     function editBiodata(){
         $username = session('username');
         $data = UserJukir::all()->where('username',$username)->first();
-        return view('/jukir/edit_biodata', compact('data')); 
+        return view('jukir.edit-biodata', compact('data')); 
     }
     function update(Request $request){
         // return $request;
@@ -86,7 +86,7 @@ class AuthController extends Controller
         
         $UserJukirBiodata->save();
         session(['nama'=> $request->nama]);
-        return redirect('/jukir/biodata');
+        return redirect('/jukir/profile');
 
         
     }

@@ -8,12 +8,14 @@ use App\UserKendaraan;
 use App\UserAkun;
 use App\Parkir;
 use App\UserJukir;
-
+use Carbon\Carbon;
 class KendaraanController extends Controller
 {
     function index(){
         $jukir = session('id');
-        $data = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Parkir")->get();
+        $mytime = Carbon::now();
+        $data = Parkir::latest()->where('jukir',$jukir)->where("stat_parkir","Parkir")->where('tgl_masuk',">=",$mytime->toDateString())->get();
+        
         // return $data;
         $jenis = RefJenisKendaraan::all();
         // return $data;

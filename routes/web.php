@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/riwayat','RiwayatParkirController@index');
-Route::get('/riwayat/jenis/{id}','RiwayatParkirController@showJenis');
 
 Route::post('riwayat/date','RiwayatParkirController@showDate');
 Route::post('riwayat/date/{id}','RiwayatParkirController@showDateJenis');
@@ -60,6 +58,10 @@ Route::prefix('jukir')->group(function () {
 
     Route::get('/parkir-terkini','KendaraanController@index');
     Route::get('/parkir-terkini/jenis/{id}','KendaraanController@showJenis');
+
+    Route::get('/riwayat-parkir','RiwayatParkirController@index');
+    Route::get('/riwayat/jenis/{id}','RiwayatParkirController@showJenis');
+
 
 });
 Route::prefix('admin')->group(function () {

@@ -27,7 +27,7 @@
     <!--begin::Header-->
         <div class="card-header align-items-center border-0 mt-4">
             <h3 class="card-title align-items-start flex-column">
-                <span class="font-weight-bolder text-dark">Parkiran Masuk Hari Ini</span>
+                <span class="font-weight-bolder text-dark">Riwayat Parkiranmu</span>
             </h3>
         </div>
         <div class="card-body pt-4">
@@ -37,7 +37,7 @@
             <div class="timeline timeline-6 mt-3">
                 @foreach ($data as $item)
                     <div class="timeline-item align-items-start">
-                        <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">{{ date('H:i', strtotime($item->tgl_masuk)) }}</div>
+                        <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">{{ date('H:i', strtotime($item->tgl_masuk)) }}<br>{{ date('d M', strtotime($item->tgl_masuk)) }}</div>
                         <div class="timeline-badge">
                             @if ($item->stat_parkir == "Parkir")
                             <i class="fa fa-genderless text-success icon-xl"></i>
@@ -63,6 +63,24 @@
 @section('konten')
     <div class="row">
         <div class="col-md-12">
+            <div class=" mb-10">
+                <ul class="nav nav-success nav-pills" id="myTab2" role="tablist">
+                    <li class="nav-item" onclick="displayMarkers('All')">
+                        <a class="nav-link active" id="home-tab-2" data-toggle="tab" href="#home-2">
+                            <span class="nav-text">All</span>
+                        </a>
+                    </li>
+                    @foreach ($jenis as $item)
+                        <li class="nav-item" onclick="displayMarkers({{ $item->id_ref_kendaraan }})">
+                            <a class="nav-link" id="contact-tab-2" data-toggle="tab" href="#contact-2" aria-controls="contact">
+                                <span class="nav-text"> {{ $item->jenis_kendaraan }} </span>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-12">
             <div id="googleMap" style="width:100%;height:100vh;"></div>
         </div>
     </div>
@@ -72,6 +90,22 @@
   <script>
     var peta, marker;
     var markers = [];
+
+function displayMarkers(category) {
+  var i;
+
+  for (i = 0; i < markers.length; i++) {
+    if (markers[i].category == category ) {
+      markers[i].setVisible(true);
+    }else if(category == "All"){
+        markers[i].setVisible(true);
+    }
+    else {
+      markers[i].setVisible(false);
+    }
+    // alert(category);
+  }
+}
   function initialize() {
     var latitude = '-0.501617';
     var longtitude = '117.126472';
@@ -102,6 +136,8 @@
           label:'{{ $item->UserKendaraan->noRegistrasi }}',
           icon: "https://cdn.discordapp.com/attachments/701478331115241549/707636193604403270/eko.png"
         });
+        markers[i].category = '{{ $item->UserKendaraan->jenis_kendaraan }}';
+        markers[i].setVisible(true);
         peta.setCenter({
           lat : parseFloat(latitude),
           lng : parseFloat(longtitude)
@@ -127,12 +163,12 @@
                 date_default_timezone_set("Asia/Kuala_Lumpur");
                 $date = new DateTime();
                 $awal  = strtotime($item->tgl_masuk); //waktu awal
-                $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
+                $akhir = strtotime($item->tgl_keluar); //waktu akhir
                 $diff  = $akhir - $awal;
                                     
                 $jam   = floor($diff / (60 * 60));
                 $menit = floor(($diff - $jam * (60 * 60))/60);
- 
+
                 $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam+$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
             ?>
             $("#biaya_parkir").html('{{ $estimasi_biaya }}<br>{{ $jam }} Jam, {{ $menit  }} Menit');

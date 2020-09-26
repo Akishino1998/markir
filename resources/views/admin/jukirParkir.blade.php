@@ -86,26 +86,26 @@
                     markers.addListener('click', function() {
                         // plat, namaPemilik, alamatUser, seri, merk, biaya, durasi 
                         <?php 
-                          date_default_timezone_set("Asia/Kuala_Lumpur");
-                          $date = new DateTime();
-                          $awal  = strtotime($item->tgl_masuk); //waktu awal
-                          $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
-                          $diff  = $akhir - $awal;
-                                      
-                          $jam   = floor($diff / (60 * 60));
-                          $menit = $diff - $jam * (60 * 60);
-
-                          $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
-                        ?>
+                              date_default_timezone_set("Asia/Kuala_Lumpur");
+                              $date = new DateTime();
+                              $awal  = strtotime($item->tgl_masuk); //waktu awal
+                              $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
+                              $diff  = $akhir - $awal;
+                                                  
+                              $jam   = floor($diff / (60 * 60));
+                              $menit = floor(($diff - $jam * (60 * 60))/60);
+              
+                              $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam+$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
+                          ?>
                         var biaya = '<?php echo $estimasi_biaya; ?>';
-                        var durasi = '<?php echo $jam; ?>';
+                        var durasi = '<?php echo $jam; ?> Jam, <?php echo $menit; ?> Menit ';
                         var plat = '{{$item->UserKendaraan->noRegistrasi }}';
                         var seri = '{{$item->UserKendaraan->seri }}';
                         var merk = '{{$item->UserKendaraan->RefMerk1->merk }}';
                         var namaPemilik = '{{$item->UserKendaraan->namaPemilik }}';
                         var alamatUser = '{{ $item->UserKendaraan->UserAkun->UserBiodata->alamat }}';
                         $("#biaya").html(biaya);
-                        $("#durasi").html(durasi+" Jam");
+                        $("#durasi").html(durasi );
                         $("#plat").html(plat);
                         $("#seri").html(seri);
                         $("#merk").html(merk);
@@ -124,26 +124,26 @@
                     markers.addListener('click', function() {
                         // plat, namaPemilik, alamatUser, seri, merk, biaya, durasi 
                         <?php 
-                          date_default_timezone_set("Asia/Kuala_Lumpur");
-                          $date = new DateTime();
-                          $awal  = strtotime($item->tgl_masuk); //waktu awal
-                          $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
-                          $diff  = $akhir - $awal;
-                                      
-                          $jam   = floor($diff / (60 * 60));
-                          $menit = $diff - $jam * (60 * 60);
-
-                          $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
+                              date_default_timezone_set("Asia/Kuala_Lumpur");
+                              $date = new DateTime();
+                              $awal  = strtotime($item->tgl_masuk); //waktu awal
+                              $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
+                              $diff  = $akhir - $awal;
+                                                  
+                              $jam   = floor($diff / (60 * 60));
+                              $menit = floor(($diff - $jam * (60 * 60))/60);
+              
+                              $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam+$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
                         ?>
                         var biaya = '<?php echo $estimasi_biaya; ?>';
-                        var durasi = '<?php echo $jam; ?>';
+                        var durasi = '<?php echo $jam; ?> Jam, <?php echo $menit; ?> Menit ';
                         var plat = '{{$item->UserKendaraan->noRegistrasi }}';
                         var seri = '{{$item->UserKendaraan->seri }}';
                         var merk = '{{$item->UserKendaraan->RefMerk1->merk }}';
                         var namaPemilik = '{{$item->UserKendaraan->namaPemilik }}';
                         var alamatUser = '{{ $item->UserKendaraan->UserAkun->UserBiodata->alamat }}';
                         $("#biaya").html(biaya);
-                        $("#durasi").html(durasi+" Jam");
+                        $("#durasi").html(durasi );
                         $("#plat").html(plat);
                         $("#seri").html(seri);
                         $("#merk").html(merk);
@@ -163,31 +163,31 @@
                    markers.addListener('click', function() {
                       // plat, namaPemilik, alamatUser, seri, merk, biaya, durasi 
                       <?php 
-                        date_default_timezone_set("Asia/Kuala_Lumpur");
-                        $date = new DateTime();
-                        $awal  = strtotime($item->tgl_masuk); //waktu awal
-                        $akhir = strtotime($item->tgl_keluar); //waktu akhir
-                        $diff  = $akhir - $awal;
-                                    
-                        $jam   = floor($diff / (60 * 60));
-                        $menit = $diff - $jam * (60 * 60);
-
-                        $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
-                      ?>
-                      var biaya = '<?php echo $estimasi_biaya; ?>';
-                      var durasi = '<?php echo $jam; ?>';
-                      var plat = '{{$item->UserKendaraan->noRegistrasi }}';
-                      var seri = '{{$item->UserKendaraan->seri }}';
-                      var merk = '{{$item->UserKendaraan->RefMerk1->merk }}';
-                      var namaPemilik = '{{$item->UserKendaraan->namaPemilik }}';
-                      var alamatUser = '{{ $item->UserKendaraan->UserAkun->UserBiodata->alamat }}';
-                      $("#biaya").html(biaya);
-                      $("#durasi").html(durasi+" Jam");
-                      $("#plat").html(plat);
-                      $("#seri").html(seri);
-                      $("#merk").html(merk);
-                      $("#namaPemilik").html(namaPemilik);
-                      $("#exampleModal").modal('show');
+                              date_default_timezone_set("Asia/Kuala_Lumpur");
+                              $date = new DateTime();
+                              $awal  = strtotime($item->tgl_masuk); //waktu awal
+                              $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
+                              $diff  = $akhir - $awal;
+                                                  
+                              $jam   = floor($diff / (60 * 60));
+                              $menit = floor(($diff - $jam * (60 * 60))/60);
+              
+                              $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam+$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
+                          ?>
+                        var biaya = '<?php echo $estimasi_biaya; ?>';
+                        var durasi = '<?php echo $jam; ?> Jam, <?php echo $menit; ?> Menit ';
+                        var plat = '{{$item->UserKendaraan->noRegistrasi }}';
+                        var seri = '{{$item->UserKendaraan->seri }}';
+                        var merk = '{{$item->UserKendaraan->RefMerk1->merk }}';
+                        var namaPemilik = '{{$item->UserKendaraan->namaPemilik }}';
+                        var alamatUser = '{{ $item->UserKendaraan->UserAkun->UserBiodata->alamat }}';
+                        $("#biaya").html(biaya);
+                        $("#durasi").html(durasi );
+                        $("#plat").html(plat);
+                        $("#seri").html(seri);
+                        $("#merk").html(merk);
+                        $("#namaPemilik").html(namaPemilik);
+                        $("#exampleModal").modal('show');
                    });
               @endif
             @endforeach
