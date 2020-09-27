@@ -30,8 +30,15 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
-       $login = new admin;
-       $login = $username
+       $login = new login;
+       $login->username = $request->username;
+       $login->password = $request->password;
+       $login->nama = $request->nama;
+       $login->save();
+
+    //    return $login;
+       return redirect("/admin");
+
     }
 
 }

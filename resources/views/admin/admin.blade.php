@@ -28,7 +28,7 @@
                   <!-- Modal body -->
                   <div class="modal-body">
                     <div class="card-body">
-                      <form  method="post" action="/admin">
+                      <form  method="post" action="/admin/tambah">
                         {{ csrf_field() }}
                         <div class="form-group">
                           <label for="exampleInputEmail1">Username</label>
@@ -58,7 +58,7 @@
                               </div>
                             @endif
                           </div>
-                          <div class="form-group">
+                          {{-- <div class="form-group">
                             <label for="exampleInputPassword1">Ulangin Password</label>
                             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password"  name="password" required>
                             @if ($errors -> has('password'))
@@ -66,8 +66,8 @@
                                 {{$errors->first('password')}}
                               </div>
                             @endif
-                          </div>
-                          {{-- <div class="form-group">
+                          </div> --}}
+                          <div class="form-group">
                             <label for="exampleInputPassword1">Foto</label>
                             <input type="file" class="form-control" id="exampleInputPassword1" placeholder=""  name="foto" required>
                             @if ($errors -> has('foto'))
@@ -75,7 +75,7 @@
                                 {{$errors->first('foto')}}
                               </div>
                             @endif
-                          </div> --}}
+                          </div>
                         <button type="submit" class="btn btn-pill btn-accent d-table mx-auto">Simpan data</button>
                       </form>
                     </div>
@@ -108,7 +108,7 @@
               <th scope="col" class="border-0">No</th>
               <th scope="col" class="border-0">Username</th>
               <th scope="col" class="border-0">Nama</th>
-              <th scope="col" class="border-0">Action</th>
+              <th th scope="col" class="border-0">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -122,17 +122,25 @@
                 <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">
                   <a href="/admin/hapus/{{$l->id}}">
                   <button type="button" class="btn btn-white">
-                    <i class="material-icons">delete</i>
+                    <i class="material-icons">edit</i>
                   </button>
                 </a>
                 </div>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">
                   <a href="/admin/hapus/{{$l->id}}">
                   <button type="button" class="btn btn-white">
-                    <i class="material-icons">update</i>
+                    <i class="material-icons">eyes</i>
                   </button>
                 </a>
                 </div>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">
+                  <a href="/admin/hapus/{{$l->id}}">
+                  <button type="button" class="btn btn-white">
+                    <i class="material-icons">delete</i>
+                  </button>
+                </a>
+                </div>
+                
               </td>
             </tr>
             @endforeach
