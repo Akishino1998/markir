@@ -126,6 +126,13 @@
                   </button>
                 </a>
                 </div>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">
+                  <a href="/admin/hapus/{{$l->id}}">
+                  <button type="button" class="btn btn-white">
+                    <i class="material-icons">update</i>
+                  </button>
+                </a>
+                </div>
               </td>
             </tr>
             @endforeach

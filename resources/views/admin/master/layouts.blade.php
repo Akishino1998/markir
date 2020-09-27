@@ -84,6 +84,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item " href="/admin/userbiodata">Data User</a>
                     <a class="dropdown-item " href="/admin/jukir">Data Juru Parkir</a>
+                    <a class="dropdown-item " href="/admin/admin">Data Admin</a>
                     <a class="dropdown-item " href="/admin/info">Merk Kendaraan</a>
                     <a class="dropdown-item " href="/admin/refbiaya">Biaya Kendaraan</a>
                     

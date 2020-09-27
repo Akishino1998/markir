@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RefModelKendaraan extends Model
 {
+    use SoftDeletes;
     protected $table = "ref_model_kendaraan";
+    protected $dates = ['deleted_at'];
     protected $primaryKey = "id_model";
     public $timestamps = false;
     protected $fillable = ['model'];
