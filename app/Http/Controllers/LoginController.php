@@ -23,21 +23,15 @@ class LoginController extends Controller
     {
         $username = $request->username;
         $password = $request->password;
-
         $admin = login::where([['username',$username],['password',$password]])->count();
-        
-        
-        // return $admin;
-
-
         if ($admin == '1') 
         {
-            return redirect('/admin/home');
+            return redirect('/admin/home')->with("alert",1);
         }
         else
         {
             
-            return redirect('/admin/login');
+            return redirect('/admin/login')->with("alert",1);
         }
 
        

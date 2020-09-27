@@ -33,7 +33,7 @@ Route::post("/setParkir","APIParkirController@index2");
 Route::get("/s/{no_alat}/{id_rfid}/{lat}/{lng}","APIParkirController@serParkirIoT");
 Route::get("/setLokasi/{idAlat}/{lat}/{lng}","APIParkirController@lokasiKendaraan");
 
-
+ 
 Route::prefix('jukir')->group(function () {
     Route::get('/login', 'AuthController@index');
     Route::post('/login', 'AuthController@login');
@@ -63,6 +63,12 @@ Route::prefix('jukir')->group(function () {
     Route::get('/riwayat/jenis/{id}','RiwayatParkirController@showJenis');
 
 
+});
+Route::get('/Admin', function () {
+    return redirect("/admin/home");
+});
+Route::get('/user', function () {
+    return redirect("/User");
 });
 Route::prefix('admin')->group(function () {
         

@@ -4,7 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 ?>
-@if ( !session()->has('username') )
+@if ( !session()->has('username-jukir') )
 <script>window.location = "/jukir/login";</script>
 @endif
 <!DOCTYPE html>
@@ -150,12 +150,12 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="offcanvas-content pr-5 mr-n5 scroll ps" style="height: 289px; overflow: hidden;">
                 <div class="d-flex align-items-center mt-5">
                     <div class="symbol symbol-100 mr-5">
-                        <div class="symbol-label" style="background-image:url('{{ asset('foto-user-jukir/') }}/{{ Session::get('foto') }}')"></div>
+                        <div class="symbol-label" style="background-image:url('{{ asset('foto-user-jukir/') }}/{{ Session::get('foto-jukir') }}')"></div>
                         <i class="symbol-badge bg-success"></i>
                     </div>
                     <div class="d-flex flex-column">
                         <div class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">
-                            {{ Session::get('nama') }} ({{ Session::get('username') }}) 
+                            {{ Session::get('nama-jukir') }} ({{ Session::get('username-jukir') }}) 
                         </div>
                         <div class="text-muted mt-1">
                             Juru Parkir
@@ -168,7 +168,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <i class="fas fa-phone"></i>
                                         </span>							
                                     </span>
-                                    <span class="navi-text text-muted text-hover-primary">{{ Session::get('no_hp') }}</span>
+                                    <span class="navi-text text-muted text-hover-primary">{{ Session::get('no_hp-jukir') }}</span>
                                 </span>
                             </div>
                             <a href="/jukir/logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Keluar</a>

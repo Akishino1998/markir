@@ -29,12 +29,12 @@ class AuthController extends Controller
             // return $user;
             if (password_verify($request->password, $user->password)) {
                 if($user->status == "aktif"){
-                    session(['username'=> $request->username]);
-                    session(['id'=> $user->id]);
-                    session(['nama'=> $user->UserJukirBiodata->nama]);
-                    session(['foto'=> $user->UserJukirBiodata->foto]);
-                    session(['no_hp'=> $user->UserJukirBiodata->no_hp]);
-                    session(['status'=> $user->status]);
+                    session(['username-jukir'=> $request->username]);
+                    session(['id-jukir'=> $user->id]);
+                    session(['nama-jukir'=> $user->UserJukirBiodata->nama]);
+                    session(['foto-jukir'=> $user->UserJukirBiodata->foto]);
+                    session(['no_hp-jukir'=> $user->UserJukirBiodata->no_hp]);
+                    session(['status-jukir'=> $user->status]);
                     // return 1;
                     if($user->no_seri_alat == "-"){
                         return redirect("/jukir/masukkan-seri-alat/".$user->id)->with("alert",'1');
@@ -58,12 +58,12 @@ class AuthController extends Controller
         }
     }
     function showBiodata(){
-        $username = session('username');
+        $username = session('username-jukir');
         $data = UserJukir::all()->where('username',$username)->first();
         return view('jukir.profile', compact('data')); 
     }
     function editBiodata(){
-        $username = session('username');
+        $username = session('username-jukir');
         $data = UserJukir::all()->where('username',$username)->first();
         return view('jukir.edit-biodata', compact('data')); 
     }
@@ -79,13 +79,13 @@ class AuthController extends Controller
             $fileName   = time() . '.' . $file->getClientOriginalExtension();
             $file->move("foto-user-jukir",$fileName);
             $UserJukirBiodata->foto = $fileName;
-            session(['foto'=> $fileName]);
+            session(['foto-jukir'=> $fileName]);
         }
-        session(['nama'=> $request->nama]);
+        session(['nama-jukir'=> $request->nama]);
        
         
         $UserJukirBiodata->save();
-        session(['nama'=> $request->nama]);
+        session(['nama-jukir'=> $request->nama]);
         return redirect('/jukir/profile');
 
         

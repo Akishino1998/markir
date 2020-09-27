@@ -10,16 +10,17 @@ use Barryvdh\DomPDF\Facade as PDF;
 class RiwayatParkirController extends Controller
 {
     function index(){
-        $jukir = session('id');
+        $jukir = session('id-jukir');
         $jenis = RefJenisKendaraan::all();
         $data = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Sudah")->get();
         // return $data->first()->UserKendaraan;
         // return $data->first()->UserKendaraan;
+        // return $data;
         return view('jukir.riwayat-parkir',compact('jenis','jukir','data'));
 
     }
     function showJenis($id){
-        $jukir = session('id');
+        $jukir = session('id-jukir');
         $jenis = RefJenisKendaraan::all();
         $data = Parkir::all()->where("jukir",$jukir)->where("stat_parkir","Sudah");
         // return $data->first()->UserKendaraan;
@@ -27,7 +28,7 @@ class RiwayatParkirController extends Controller
     }
     function showDate(Request $request){
         // return $request;
-        $jukir = session('username');
+        $jukir = session('username-jukir');
         $start = explode('/',$request->start);
         $tglAwal = $start[2]."-".$start[0]."-".$start[1];
 
@@ -49,7 +50,7 @@ class RiwayatParkirController extends Controller
 
     function showDateJenis(Request $request){
         // return $request;
-        $jukir = session('username');
+        $jukir = session('username-jukir');
         $start = explode('/',$request->start);
         $tglAwal = $start[2]."-".$start[0]."-".$start[1];
 
