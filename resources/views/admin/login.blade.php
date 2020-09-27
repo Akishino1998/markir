@@ -22,6 +22,9 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="{{asset('css/shards-dashboards.1.1.0.css') }}">
     <link rel="stylesheet" href="{{asset('styles/extras.1.3.1.min.css')}}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
   </head>
   <body class="h-100">
     <div class="container-fluid icon-sidebar-nav h-100">
@@ -33,9 +36,9 @@
               <div class="col-lg-3 col-md-5 auth-form mx-auto my-auto">
                 <div class="card">
                   <div class="card-body">
-                    <img class="auth-form__logo d-table mx-auto mb-3" src="images/shards-dashboards-logo.svg" alt="Shards Dashboards - Register Template">
-                    <h2 class="auth-form__title text-center mb-4">MARKIR</h2>
-                    <h6 class="text-center mb-4 mg-4">Silahkan input akun anda dengan benar </h6>
+                    <img class="auth-form__logo d-table mx-auto mb-3" src="images/logo/markir.PNG" alt="Shards Dashboards - Register Template">
+                    <h2 class="auth-form__title text-center mb-4"> ADMIN MARKIR</h2>
+                    <h6 class="text-center mb-4 mg-4">Silahkan input akun anda dengan benar</h6>
                     <form method="POST" action="/admin/login">
                       {{-- ini sangat mudah asuuuu  ITU DILEMPAR DULU DALAM LOGIN UNTK DI CEK, baru ke home hmm/ really ntar kukasih tutorlnya--}}
                         {{ csrf_field() }}
