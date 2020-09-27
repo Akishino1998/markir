@@ -28,8 +28,8 @@ class JukirController extends Controller
     //save hasil verifikasi
     function simpan(Request $request){
         $jukir = UserJukir::where("username",$request->username)->first();
-        // return $jukir;
-        $jukir->status = "Y";
+        return $jukir;
+        $jukir->status = "aktif";
         $jukir->save();
         return redirect("/admin/jukir");
     }

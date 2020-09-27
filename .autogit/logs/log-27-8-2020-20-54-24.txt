@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Sun Sep 27 2020 20:54:24 GMT+0800 (Singapore Standard Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/HomeController.php
+* app/Http/Controllers/JukirController.php
+* resources/views/admin/master/layouts.blade.php
+
+
+Created files:
+* .autogit/logs/log-27-8-2020-20-24-17.txt
+* "public/images/logo/Markir 1.jpg"
+* "public/images/logo/Markir 1.png"
+* public/images/logo/Markir.jpg
+* public/images/logo/Markir.png
+
+
+Deleted files:
+
+
+Renamed files:

@@ -26,23 +26,95 @@ if (session_status() == PHP_SESSION_NONE) {
   </head>
 
   <body class="h-100">
-    
-  <div class="container-fluid">
-      <div class="row">
-        <main class="main-content col-lg-12 col-md-12 col-sm-12 p-0">
+      <div class="container-fluid icon-sidebar-nav">
+        <div class="row">
+          <!-- Main Sidebar -->
+          <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+            <div class="main-navbar">
+              <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+                <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+                  <div class="d-table m-auto">
+                    <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{ asset('images/logo/markir1.jpeg') }}" alt="Shards Dashboard">
+                  </div>
+                </a>
+                <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+                  <i class="material-icons">&#xE5C4;</i>
+                </a>
+              </nav>
+            </div>
+            <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+              <div class="input-group input-group-seamless ml-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-search"></i>
+                  </div>
+                </div>
+                <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search">
+              </div>
+            </form>
+            <div class="nav-wrapper">
+              <h6 class="main-sidebar__nav-title">Dashboards</h6>
+              <ul class="nav nav--no-borders flex-column">
+                <li class="nav-item">
+                  <a class="nav-link " href="/admin/home">
+                    <i class="material-icons">home</i>
+                    <span>Beranda</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/parkirmasuk">
+                    <i class="material-icons">moped</i>
+                    <span>Parkir Terkini</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/parkirkeluar">
+                    <i class="material-icons">history</i>
+                    <span>Riwayat Parkir</span>
+                  </a>
+                </li>
+              </ul>
+              <h6 class="main-sidebar__nav-title">Templates</h6>
+              <ul class="nav nav--no-borders flex-column">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                    <i class="material-icons">&#xE7FD;</i>
+                    <span>Master Data</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small">
+                    <a class="dropdown-item " href="/admin/userbiodata">Data User</a>
+                    <a class="dropdown-item " href="/jukir">Data Juru Parkir</a>
+                    <a class="dropdown-item " href="/info">Merk Kendaraan</a>
+                    <a class="dropdown-item " href="/refbiaya">Biaya Kendaraan</a>
+                    
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="material-icons">&#xE2C7;</i>
+                    <span>Laporan</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small">
+                    <a class="dropdown-item " href="file-manager-list.html">Laporan Parkir</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          <!-- End Main Sidebar -->
+          
+  {{-- <div class="container-fluid"> --}}
+    <main class="main-content col">
+      <div class="main-navbar sticky-top bg-white">
           <div class="main-navbar  bg-white">
             <div class="container p-0">
               <!-- Main Navbar -->
               <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
-                <a class="navbar-brand" href="#" style="line-height: 25px;">
-                  <div class="d-table m-auto">
-                    <img id="main-logo" class="d-inline-block align-top mr-1 ml-3" style="max-width: 25px;" src="{{ asset('images/shards-dashboards-logo.svg') }}" alt="Shards Dashboard">
-                    <span class="d-none d-md-inline ml-1">Markir</span>
-                  </div>
-                </a>
+               
                 <ul class="navbar-nav border-left flex-row border-right ml-auto">
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                      <span>Hi admin</span>
                       <img class="user-avatar rounded-circle mr-2" src="{{ asset('images/avatars/profil.jpeg') }}" alt="User Avatar"> <span class="d-none d-md-inline-block">{{ Session::get('nama') }}</span>
                     </a>
 
@@ -62,49 +134,29 @@ if (session_status() == PHP_SESSION_NONE) {
                 </nav>
               </nav>
             </div> <!-- / .container -->
-          </div> <!-- / .main-navbar -->
-          <div class="header-navbar collapse d-lg-flex p-0 bg-white border-top">
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
-                    <li class="nav-item">
-                      <a href="/admin/home" class="nav-link" ><i class="material-icons">home</i> Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/admin/parkirmasuk" class="nav-link"><i class="material-icons">moped</i> Parkir Terkini</a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/admin/parkirkeluar" class="nav-link"><i class="material-icons">history</i> Riwayat Parkir</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link" data-toggle="dropdown"><i class="material-icons">&#xE2C7;</i>Info Akun</a>
-                      <div class="dropdown-menu dropdown-menu-small">
-                        <a href="/admin/userbiodata" class="dropdown-item">Users</a>
-                        <a href="/admin/jukir" class="dropdown-item">Jukir</a>
-                      </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link" data-toggle="dropdown"><i class="material-icons">&#xE2C7;</i>Info Kendaraan</a>
-                      <div class="dropdown-menu dropdown-menu-small">
-                        <a href="/admin/info" class="dropdown-item">Merk Kendaraan</a>
-                        <a href="/admin/refbiaya" class="dropdown-item">Info Biaya Kendaraan</a>
-                      </div>
-                    </li>
-                  </ul>
+        <!-- / .main-navbar -->
+            <div class="header-navbar collapse d-lg-flex p-0 bg-white border-top"> 
+            
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        @yield("content")
-        <footer class="main-footer d-flex p-2 px-5x bg-white border-top" id="footer">
+                @yield("content")
+                <footer class="main-footer d-flex p-2 px-5x bg-white border-top" id="footer">
 
-          <span class="copyright ml-auto my-auto mr-2">Made With <i class="fa fa-heart" aria-hidden="true" style="color:rgb(0, 162, 255);"></i> by
-              <a href="https://facebook.com/EkoPujianto1998">Nyervisga</a>
-          </footer>
+                  <span class="copyright ml-auto my-auto mr-2">Made With <i class="fa fa-heart" aria-hidden="true" style="color:rgb(0, 162, 255);"></i> by
+                      <a href="https://facebook.com/EkoPujianto1998">Nyervisga</a>
+                  </footer>
+          </div>
         </main>
+        
       </div>
     </div>
+  
+      
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

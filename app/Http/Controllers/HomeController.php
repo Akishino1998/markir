@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function home(){
         $jukir = jukir::all()->count();
         $jukir1 = UserJukir::all()->where('status','N')->count();
-        $jukir2 = UserJukir::all()->where('status','Y')->count();
+        $jukir2 = UserJukir::all()->where('status','aktif')->count();
         $terkini = parkirmasuk::where('stat_parkir','Parkir')->get()->count();
         $riwayat = parkirmasuk::all()->count();
         $user_akun = UserAkun::all()->count();
