@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\login;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,8 @@ class LoginController extends Controller
         $password = $request->password;
         $admin = login::where([['username',$username],['password',$password]])->count();
         if ($admin == '1') 
-        {
+        { 
+            session(['username-admin'=> $request->username]);
             return redirect('/admin/home')->with("alert",1);
         }
         else
