@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Mon Sep 28 2020 03:56:56 GMT+0800 (Singapore Standard Time)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/DataKendaraanController.php
+* resources/views/admin/datakendaraan.blade.php
+* resources/views/admin/login.blade.php
+* resources/views/admin/master/layouts.blade.php
+* resources/views/admin/parkirkeluar.blade.php
+* resources/views/admin/parkirmasuk.blade.php
+
+
+Created files:
+* .autogit/logs/log-28-8-2020-3-26-48.txt
+
+
+Deleted files:
+
+
+Renamed files:
