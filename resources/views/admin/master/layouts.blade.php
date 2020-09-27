@@ -56,7 +56,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <h6 class="main-sidebar__nav-title">Dashboards</h6>
               <ul class="nav nav--no-borders flex-column">
                 <li class="nav-item">
-                  <a class="nav-link " href="/admin/admin/home">
+                  <a class="nav-link " href="/admin/home">
                     <i class="material-icons">home</i>
                     <span>Beranda</span>
                   </a>
@@ -123,7 +123,7 @@ if (session_status() == PHP_SESSION_NONE) {
                       <a class="dropdown-item" href="/biodata"><i class="material-icons">account_circle</i> Profile</a>
                       <a class="dropdown-item" href="/edit-biodata"><i class="material-icons">edit</i> Edit Profile</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item text-danger" href="/login">
+                      <a class="dropdown-item text-danger" href="/admin/login">
                         <i class="material-icons text-danger"></i> Logout </a>   
                     </div>
                   </li>

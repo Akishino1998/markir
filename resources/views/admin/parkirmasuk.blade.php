@@ -42,11 +42,14 @@
                   </select>
                 </div>
                 <div class="form-group col-md-6">
-                  
-                  <label for="displayEmail">Data Parkir Masuk</label>
-                  <a herf ="/admin/datakendaraan">
-                    <button type="input   " class="btn btn-accent"><i class="material-icons">account_circle</i> Lihat Data</button>
-                    </a>
+                    
+                    <label for="displayEmail">Data Parkir Masuk</label>
+                    <a href="/admin/datakendaraan">
+                    <button type="button" class="btn btn-accent">
+                      <i class="material-icons">account_circle</i> 
+                      Lihat Data
+                    </button>
+                  </a>
                 </div>
               </div>  
             </div>

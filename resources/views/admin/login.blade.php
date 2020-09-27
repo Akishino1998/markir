@@ -37,7 +37,9 @@
                 <div class="card">
                   <div class="card-body">
                     <img class="auth-form__logo d-table mx-auto mb-3" src="{{ asset('images/logo/markir.PNG') }}" alt="Shards Dashboards - Register Template">
-                    <h2 class="auth-form__title text-center mb-4"> ADMIN MARKIR</h2>
+                    <center>
+                      <span class="auth-form__title text-center"> Admin Mari Parkir</span>
+                    </center>
                     <h6 class="text-center mb-4 mg-4">Silahkan input akun anda dengan benar</h6>
                     <form method="POST" action="/admin/login">
                       {{-- ini sangat mudah asuuuu  ITU DILEMPAR DULU DALAM LOGIN UNTK DI CEK, baru ke home hmm/ really ntar kukasih tutorlnya--}}
