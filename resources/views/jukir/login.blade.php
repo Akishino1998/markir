@@ -22,8 +22,8 @@
                 <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid" style="background-image: url({{ asset('dist/assets/media/bg/bg-1.jpg') }});">
                     <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
                         <div class="d-flex flex-center mb-15">
-                            <a href="#">
-                                <img src="{{ asset('dist/assets/media/logos/logo-letter-9.png') }}" class="max-h-100px" alt=""/>
+                            <a href="/jukir/">
+                                <img src="{{ asset('images/logo/markir.PNG') }}" class="max-h-100px" alt=""/>
                             </a>
                         </div>
                         <!--end::Login Header-->
