@@ -25,7 +25,13 @@ class AdminController extends Controller
         // return $login;
         $login->delete();
 
-        return redirect("admin/admin");
+        return redirect("/admin/admin");
+    }
+
+    public function store(Request $request)
+    {
+       $login = new admin;
+       $login = $username
     }
 
 }
