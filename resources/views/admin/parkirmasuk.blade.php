@@ -9,7 +9,9 @@
               <h3 class="page-title">Parkir Terkini</h3>
             </div>
             <div class="col-12 col-sm-4 d-flex align-items-center">
+              
               <div class="btn-group btn-group-sm btn-group-toggle d-inline-flex mb-4 mb-sm-0 mx-auto" role="group" aria-label="Page actions">
+                
                 <div class="form-group col-md-6">
                   <label for="displayEmail">Jukir</label>
                   <select class="custom-select" id="jukir" onchange="getInfoParkir()">
@@ -39,7 +41,7 @@
                     
                   </select>
                 </div>
-              </div>
+              </div>  
             </div>
             {{-- INI SEARCH --}}
 
@@ -230,7 +232,7 @@
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
         <body>
-          <div id="googleMap" style="width:100%;height:65vh;"></div>
+          <div id="googleMap" style="width:50%;height:65vh;"></div>
         </body>
             <!-- End Transaction History Table -->
   </div>

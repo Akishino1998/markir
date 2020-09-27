@@ -129,7 +129,7 @@
                 <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">
                   <a href="/admin/hapus/{{$l->id}}">
                   <button type="button" class="btn btn-white">
-                    <i class="material-icons">eyes</i>
+                    <i class="material-icons">visibility</i>
                   </button>
                 </a>
                 </div>
