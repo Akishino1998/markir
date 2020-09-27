@@ -36,7 +36,7 @@
               <div class="col-lg-3 col-md-5 auth-form mx-auto my-auto">
                 <div class="card">
                   <div class="card-body">
-                    <img class="auth-form__logo d-table mx-auto mb-3" src="images/logo/markir.PNG" alt="Shards Dashboards - Register Template">
+                    <img class="auth-form__logo d-table mx-auto mb-3" src="{{ asset('images/logo/markir.PNG') }}" alt="Shards Dashboards - Register Template">
                     <h2 class="auth-form__title text-center mb-4"> ADMIN MARKIR</h2>
                     <h6 class="text-center mb-4 mg-4">Silahkan input akun anda dengan benar</h6>
                     <form method="POST" action="/admin/login">
@@ -44,11 +44,11 @@
                         {{ csrf_field() }}
                       <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="username" name="username" value="username" placeholder="Username" required>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="username" name="username" placeholder="Username" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" value="password" id="password" name="password" placeholder="Password" required>
+                        <input type="password" class="form-control" id="exampleInputPassword1" id="password" name="password" placeholder="Password" required>
                       </div>
                       <div class="form-group mb-3 d-table mx-auto">
                         <div class="custom-control custom-checkbox mb-1">
@@ -76,5 +76,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="{{asset('scripts/extras.1.3.1.min.js')}}"></script>
     <script src="{{asset('scripts/shards-dashboards.1.3.1.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.5/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>
+@if (Session::has('alert'))
+    @if (Session::get('alert') == 1)
+        <script>
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Username atau password anda salah!'
+          })
+        </script>
+    @endif
+@endif

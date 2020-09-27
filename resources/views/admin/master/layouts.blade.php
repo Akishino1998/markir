@@ -1,3 +1,12 @@
+<?php 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+?>
+@if ( !session()->has('username-admin') )
+<script>window.location = "/admin/login";</script>
+@endif
 <!doctype html>
 <html class="no-js h-100" lang="en">
   <head>

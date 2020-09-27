@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class KendaraanController extends Controller
 {
     function index(){
-        $jukir = session('id');
+        $jukir = session('id-jukir');
         $mytime = Carbon::now();
         $data = Parkir::latest()->where('jukir',$jukir)->where("stat_parkir","Parkir")->where('tgl_masuk',">=",$mytime->toDateString())->get();
         
@@ -23,7 +23,7 @@ class KendaraanController extends Controller
     }   
     function showJenis($id){
         
-        $jukir = session('id');
+        $jukir = session('id-jukir');
         $data = Parkir::all()->where("jukir",$jukir)->where("stat_parkir","Parkir")->where("id_kendaraan",$id);
         $jenis = RefJenisKendaraan::all();
         // return $data->first()->UserKendaraan->RefJenisKendaraan1->id_ref_kendaraan;
