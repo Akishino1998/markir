@@ -136,10 +136,15 @@ Route::prefix('admin')->group(function () {
     Route::get("/infouser/{username}", "InfouserController@showdata");
 
 
-    // Data Validasiawdawd
+    // Data Validasi
     Route::get("/datavalidasi", "DatavalidasiController@datavalidasi");
 
     // Data Kendaraan
     // Route::get("/datakendaraan", "DatakendaraanController@datakendaraan");
     Route::get("/datakendaraan", "DatakendaraanController@index");
+
+    // Data Admin
+    // Route::get("/admin", "AdminController@index");
+    Route::get("/admin", "AdminController@admin");
+    Route::get("/hapus/{id}", "AdminController@hapus");
 });

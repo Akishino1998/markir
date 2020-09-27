@@ -47,19 +47,19 @@
               <h6 class="main-sidebar__nav-title">Dashboards</h6>
               <ul class="nav nav--no-borders flex-column">
                 <li class="nav-item">
-                  <a class="nav-link " href="/admin/home">
+                  <a class="nav-link " href="/admin/admin/home">
                     <i class="material-icons">home</i>
                     <span>Beranda</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="/parkirmasuk">
+                  <a class="nav-link " href="/admin/parkirmasuk">
                     <i class="material-icons">moped</i>
                     <span>Parkir Terkini</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="/parkirkeluar">
+                  <a class="nav-link " href="/admin/parkirkeluar">
                     <i class="material-icons">history</i>
                     <span>Riwayat Parkir</span>
                   </a>
@@ -74,9 +74,9 @@
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item " href="/admin/userbiodata">Data User</a>
-                    <a class="dropdown-item " href="/jukir">Data Juru Parkir</a>
-                    <a class="dropdown-item " href="/info">Merk Kendaraan</a>
-                    <a class="dropdown-item " href="/refbiaya">Biaya Kendaraan</a>
+                    <a class="dropdown-item " href="/admin/jukir">Data Juru Parkir</a>
+                    <a class="dropdown-item " href="/admin/info">Merk Kendaraan</a>
+                    <a class="dropdown-item " href="/admin/refbiaya">Biaya Kendaraan</a>
                     
                   </div>
                 </li>
