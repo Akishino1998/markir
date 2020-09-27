@@ -32,7 +32,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                           <label for="exampleInputEmail1">Username</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Motor atau Mobil" name="username" required >
+                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" name="username" required >
 
                           @if ($errors -> has('username'))
                             <div class="text-danger">
@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Nama</label>
-                          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="biaya"  name="nama" required>
+                          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nama"  name="nama" required>
                           @if ($errors -> has('nama'))
                             <div class="text-danger">
                               {{$errors->first('nama')}}
@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="passwrod" class="form-control" id="exampleInputPassword1" placeholder="biaya"  name="password" required>
+                            <input type="passwrod" class="form-control" id="exampleInputPassword1" placeholder="password"  name="password" required>
                             @if ($errors -> has('password'))
                               <div class="text-danger">
                                 {{$errors->first('password')}}
@@ -60,7 +60,7 @@
                           </div>
                           <div class="form-group">
                             <label for="exampleInputPassword1">Ulangin Password</label>
-                            <input type="passwrod" class="form-control" id="exampleInputPassword1" placeholder="biaya"  name="password" required>
+                            <input type="passwrod" class="form-control" id="exampleInputPassword1" placeholder="password"  name="password" required>
                             @if ($errors -> has('password'))
                               <div class="text-danger">
                                 {{$errors->first('password')}}
@@ -69,7 +69,7 @@
                           </div>
                           <div class="form-group">
                             <label for="exampleInputPassword1">Foto</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="biaya"  name="foto" required>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder=""  name="foto" required>
                             @if ($errors -> has('foto'))
                               <div class="text-danger">
                                 {{$errors->first('foto')}}
