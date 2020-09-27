@@ -41,6 +41,13 @@
                     
                   </select>
                 </div>
+                <div class="form-group col-md-6">
+                  
+                  <label for="displayEmail">Data Parkir Masuk</label>
+                  <a herf ="/admin/datakendaraan">
+                    <button type="input   " class="btn btn-accent"><i class="material-icons">account_circle</i> Lihat Data</button>
+                    </a>
+                </div>
               </div>  
             </div>
             {{-- INI SEARCH --}}
@@ -98,6 +105,7 @@
     </div>
   </div>
 </div>
+
         <script>
           var markers;
             // fungsi initialize untuk mempersiapkan peta
@@ -232,7 +240,7 @@
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
         <body>
-          <div id="googleMap" style="width:50%;height:65vh;"></div>
+          <div id="googleMap" style="width:100%;height:65vh;"></div>
         </body>
             <!-- End Transaction History Table -->
   </div>
@@ -243,4 +251,6 @@
       window.location.replace('/admin/parkirmasuk?jukir='+jukir+'&jenis_kendaraan='+jenis_kendaraan);
     }
   </script>
+</div>
+ 
 @endsection
