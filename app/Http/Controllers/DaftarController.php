@@ -14,11 +14,9 @@ class DaftarController extends Controller
         return view('register');
     }
     function store(Request $request){
-        // return $request; 
         $file       = $request->file('foto');
         $fileNameFoto   = time() . '.' . $file->getClientOriginalExtension();
         $file->move("foto-user-jukir",$fileNameFoto);
-        // $file->move("User.foto-user-jukir",$fileNameFoto);
 
         $file       = $request->file('foto_ktp');
         $fileNameFotoKtp   = time() . '.' . $file->getClientOriginalExtension();
@@ -39,7 +37,7 @@ class DaftarController extends Controller
         $userBiodataJukir->id_jukir = $last_id;
         $userBiodataJukir->foto_ktp = $fileNameFotoKtp;
         $userBiodataJukir->save();
-        return redirect('/jukir/login')->with('alert','7');//tidak disetujui
+        return redirect('/jukir/login')->with('alert','7');
 
 
         

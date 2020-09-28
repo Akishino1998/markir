@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\login;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {

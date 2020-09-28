@@ -48,7 +48,7 @@ Route::prefix('jukir')->group(function () {
 
     Route::get('/jukir', function () {
         return redirect('/dasboard');
-    });
+    }); 
     Route::get('/logout',function(){
         session()->flush();
         return redirect("/jukir/login");

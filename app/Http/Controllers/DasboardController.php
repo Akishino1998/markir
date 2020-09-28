@@ -9,14 +9,11 @@ use Carbon\Carbon;
 class DasboardController extends Controller
 { 
     function index(){
-        $jukir = session('id'); 
+        $jukir = session('id-jukir'); 
         $data = RefJenisKendaraan::all();
-        
         $dataJenis = [];
-        // return $jukir;
         $mytime = Carbon::now();
         $parkir = Parkir::latest()->where('jukir',$jukir)->where('tgl_masuk',">=",$mytime->toDateString())->get();
-        // return $mytime->toDateString();
         // return $parkir;
         foreach($data as $item){
             $i = 0;
@@ -28,9 +25,6 @@ class DasboardController extends Controller
             array_push($dataJenis,["jenis" =>$item->jenis_kendaraan,"total"=>$i]);
             $i++;
         } 
-        // return $dataJenis[0];
-        // return print_r(array_keys($dataJenis, "1"));
-        // return $dataJenis[0]['total'];
         return view('jukir.index', compact('dataJenis','parkir'));   
     }
 }
