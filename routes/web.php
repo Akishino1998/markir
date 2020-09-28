@@ -153,4 +153,5 @@ Route::prefix('admin')->group(function () {
     // Route::get("/admin", "AdminController@index");
     Route::get("/admin", "AdminController@admin");
     Route::get("/hapus/{id}", "AdminController@hapus");
+    route::post("/tambah","AdminController@store");
 });

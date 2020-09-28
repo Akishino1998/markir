@@ -32,9 +32,9 @@ if (session_status() == PHP_SESSION_NONE) {
           <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
             <div class="main-navbar">
               <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-                <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+                <a class="navbar-brand w-100 mr-0" href="/admin/home" style="line-height: 25px;">
                   <div class="d-table m-auto">
-                    <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{ asset('images/logo/markir1.jpeg') }}" alt="Shards Dashboard">
+                    <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{ asset('images/logo/markir.PNG') }}" alt="Shards Dashboard">
                   </div>
                 </a>
                 <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
@@ -56,7 +56,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <h6 class="main-sidebar__nav-title">Dashboards</h6>
               <ul class="nav nav--no-borders flex-column">
                 <li class="nav-item">
-                  <a class="nav-link " href="/admin/admin/home">
+                  <a class="nav-link " href="/admin/home">
                     <i class="material-icons">home</i>
                     <span>Beranda</span>
                   </a>
@@ -84,6 +84,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item " href="/admin/userbiodata">Data User</a>
                     <a class="dropdown-item " href="/admin/jukir">Data Juru Parkir</a>
+                    <a class="dropdown-item " href="/admin/admin">Data Admin</a>
                     <a class="dropdown-item " href="/admin/info">Merk Kendaraan</a>
                     <a class="dropdown-item " href="/admin/refbiaya">Biaya Kendaraan</a>
                     
@@ -122,7 +123,7 @@ if (session_status() == PHP_SESSION_NONE) {
                       <a class="dropdown-item" href="/biodata"><i class="material-icons">account_circle</i> Profile</a>
                       <a class="dropdown-item" href="/edit-biodata"><i class="material-icons">edit</i> Edit Profile</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item text-danger" href="/login">
+                      <a class="dropdown-item text-danger" href="/admin/login">
                         <i class="material-icons text-danger"></i> Logout </a>   
                     </div>
                   </li>

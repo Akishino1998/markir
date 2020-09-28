@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Mon Sep 28 2020 01:06:57 GMT+0800 (Singapore Standard Time)
+------------------------------------------------------
+
+Modified files:
+* public/css/shards-dashboards.1.1.0.min.css
+* resources/views/admin/admin.blade.php
+* resources/views/admin/master/layouts.blade.php
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

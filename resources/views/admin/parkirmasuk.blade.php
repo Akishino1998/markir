@@ -9,7 +9,9 @@
               <h3 class="page-title">Parkir Terkini</h3>
             </div>
             <div class="col-12 col-sm-4 d-flex align-items-center">
+              
               <div class="btn-group btn-group-sm btn-group-toggle d-inline-flex mb-4 mb-sm-0 mx-auto" role="group" aria-label="Page actions">
+                
                 <div class="form-group col-md-6">
                   <label for="displayEmail">Jukir</label>
                   <select class="custom-select" id="jukir" onchange="getInfoParkir()">
@@ -39,7 +41,17 @@
                     
                   </select>
                 </div>
-              </div>
+                <div class="form-group col-md-6">
+                    
+                    <label for="displayEmail">Data Parkir Masuk</label>
+                    <a href="/admin/datakendaraan">
+                    <button type="button" class="btn btn-accent">
+                      <i class="material-icons">account_circle</i> 
+                      Lihat Data
+                    </button>
+                  </a>
+                </div>
+              </div>  
             </div>
             {{-- INI SEARCH --}}
 
@@ -96,6 +108,7 @@
     </div>
   </div>
 </div>
+
         <script>
           var markers;
             // fungsi initialize untuk mempersiapkan peta
@@ -241,4 +254,6 @@
       window.location.replace('/admin/parkirmasuk?jukir='+jukir+'&jenis_kendaraan='+jenis_kendaraan);
     }
   </script>
+</div>
+ 
 @endsection
