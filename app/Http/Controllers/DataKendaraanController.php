@@ -13,10 +13,10 @@ class DatakendaraanController extends Controller
         return view("admin.datakendaraan");
     }
 
-    public function index()
+    public function index($status)
     {
-        $tb_parkir = parkirmasuk::all()->where("stat_parkir","Sudah")->where("jukir");
-
+        $tb_parkir = parkirmasuk::all()->where("stat_parkir",$status);
+        // return $tb_parkir;
         return view("admin.datakendaraan",["datakendaraan"=>$tb_parkir]);
     }
 }

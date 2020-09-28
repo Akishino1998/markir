@@ -147,7 +147,7 @@ Route::prefix('admin')->group(function () {
 
     // Data Kendaraan
     // Route::get("/datakendaraan", "DatakendaraanController@datakendaraan");
-    Route::get("/datakendaraan", "DatakendaraanController@index");
+    Route::get("/datakendaraan/{status}", "DatakendaraanController@index");
 
     // Data Admin
     // Route::get("/admin", "AdminController@index");

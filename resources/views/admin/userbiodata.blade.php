@@ -51,7 +51,7 @@
                                 </button>
                               <!-- The Modal -->
                               <div class="modal fade" id="myModal1{{ $u->id }}">
-                                <div class="modal-dialog modal-lg">
+                                <div class="modal-dialog ">
                                   <div class="modal-content">
                                     <!-- Modal Header -->
                                     <div class="modal-header">
@@ -96,13 +96,13 @@
                                               </ul>
                                             </div>
                                           </div>
-                                          <div class="col-lg-12">
+                                          <div class="col-md-12">
                                             <div class="card card-small mb-4">
                                               <img src="{{ asset('profile') }}/{{ $u->UserBiodata->foto }}" alt="">
                                             </div>
                                           </div>
-                                          <div class="col-lg-12">
-                                            <div class="card card-small mb-4">
+                                          <div class="col-lg-8">
+                                            <div class="card card-small mb-6">
                                               <img src="{{ asset('profile') }}/{{ $u->UserBiodata->ktp }}" alt="">
                                             </div>
                                           </div>

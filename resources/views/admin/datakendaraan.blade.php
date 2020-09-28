@@ -27,18 +27,18 @@
               <th scope="col" class="border-0">Biaya</th>
             </tr>
           </thead>
-          {{-- DELETE --}}
+          
           <tbody>
             @foreach($datakendaraan as $d)
                 
             <tr>
-              <td>{{$d->UserKendaraan}}</td>
-              <td>{{$d->id_kendaraan}}</td>
+              <td>{{$d->id_parkir}}</td>
+              <td>{{$d->UserKendaraan->noRegistrasi}}</td>
               <td>{{$d->jukir}}</td>
               <td>{{$d->stat_parkir}}</td>
               <td>{{$d->biaya}}</td>
             </tr>
-            {{-- END DELETE --}}
+            
             @endforeach
           </tbody>
         </table>
