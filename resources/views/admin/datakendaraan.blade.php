@@ -31,7 +31,7 @@
           <tbody>
             @foreach($datakendaraan as $d)
                 
-            <tr>
+            <tr> 
               <td>{{$d->id_parkir}}</td>
               <td>{{$d->UserKendaraan->noRegistrasi}}</td>
               <td>{{$d->jukir}}</td>
