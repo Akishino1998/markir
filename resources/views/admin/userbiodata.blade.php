@@ -152,19 +152,17 @@
                                               </div>
                                               <p class="text-center text-light  mb-2">Lihat Kendaraan User</p>
                                         
-                                              <ul class="user-details__social user-details__social--primary d-table mx-4 mb-4 md-6">
+                                              <ul class="user-details__social user-details__social--primary d-table mx-4 mb-2 md-6">
                                                 <a href="/admin/infokendaraan/{{$u->id}}">
                                                   <button class="btn btn-warning"> {{ $userKendaraan->where('username',$u->id)->where('status','N')->COUNT() }} Kendaraan belum dicek</button>
                                                 </a>
                                                 <br>
-                                                <br>
-                                              
+                                                <br>                                                
                                                 <a href="/admin/infouser/{{$u->username}}">
                                                   <button type="button" class="btn btn-accent">
                                                     Lihat Kendaraan
                                                   </button>
                                                 </a>
-                                        
                                               </ul>
                                             
                                             </div>
