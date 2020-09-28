@@ -96,7 +96,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     <span>Laporan</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
-                    <a class="dropdown-item " href="/admin/laporan">Laporan Parkir</a>
+                    <a class="dropdown-item " href="/admin/laporan ">Laporan Parkir</a>
                   </div>
                 </li>
               </ul>
