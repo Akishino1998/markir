@@ -32,6 +32,7 @@ Route::get("/setParkir","APIParkirController@setParkir");
 Route::post("/setParkir","APIParkirController@index2");
 Route::get("/s/{no_alat}/{id_rfid}/{lat}/{lng}","APIParkirController@serParkirIoT");
 Route::get("/setLokasi/{idAlat}/{lat}/{lng}","APIParkirController@lokasiKendaraan");
+Route::get("/setParkirIoT/{no_alat}/{id_rfid}/{lat}/{lng}","APIParkirController@serParkirIoT");
 
  
 Route::prefix('jukir')->group(function () {
