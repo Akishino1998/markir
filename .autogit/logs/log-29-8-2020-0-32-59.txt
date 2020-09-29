@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Sep 29 2020 00:32:59 GMT+0800 (Singapore Standard Time)
+------------------------------------------------------
+
+Modified files:
+* resources/views/admin/jukir.blade.php
+* resources/views/admin/user/user_kendaraan.blade.php
+* resources/views/admin/userbiodata.blade.php
+
+
+Created files:
+* .autogit/logs/log-28-8-2020-23-58-51.txt
+
+
+Deleted files:
+
+
+Renamed files:

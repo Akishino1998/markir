@@ -51,7 +51,7 @@
                                 </button>
                               <!-- The Modal -->
                               <div class="modal fade" id="myModal1{{ $u->id }}">
-                                <div class="modal-dialog modal-lg">
+                                <div class="modal-dialog ">
                                   <div class="modal-content">
                                     <!-- Modal Header -->
                                     <div class="modal-header">
@@ -96,13 +96,13 @@
                                               </ul>
                                             </div>
                                           </div>
-                                          <div class="col-lg-12">
+                                          <div class="col-md-12">
                                             <div class="card card-small mb-4">
                                               <img src="{{ asset('profile') }}/{{ $u->UserBiodata->foto }}" alt="">
                                             </div>
                                           </div>
-                                          <div class="col-lg-12">
-                                            <div class="card card-small mb-4">
+                                          <div class="col-lg-8">
+                                            <div class="card card-small mb-6">
                                               <img src="{{ asset('profile') }}/{{ $u->UserBiodata->ktp }}" alt="">
                                             </div>
                                           </div>
@@ -150,18 +150,19 @@
                                                   <img class="rounded-circle" src="{{ asset('profile') }}/{{ $u->UserBiodata->foto }}" alt="User Avatar" width="110">
                                                 </div>
                                               </div>
-                                              <p class="text-center text-light m-0 mb-2">Lihat Kendaraan User</p>
-                                              <ul class="user-details__social user-details__social--primary d-table mx-4 mb-2">
+                                              <p class="text-center text-light  mb-2">Lihat Kendaraan User</p>
+                                        
+                                              <ul class="user-details__social user-details__social--primary d-table mx-4 mb-2 md-6">
                                                 <a href="/admin/infokendaraan/{{$u->id}}">
                                                   <button class="btn btn-warning"> {{ $userKendaraan->where('username',$u->id)->where('status','N')->COUNT() }} Kendaraan belum dicek</button>
                                                 </a>
-                                                <br><br>
+                                                <br>
+                                                <br>                                                
                                                 <a href="/admin/infouser/{{$u->username}}">
-                                                  <button type="button" class="btn btn-white">
+                                                  <button type="button" class="btn btn-accent">
                                                     Lihat Kendaraan
                                                   </button>
                                                 </a>
-
                                               </ul>
                                             
                                             </div>

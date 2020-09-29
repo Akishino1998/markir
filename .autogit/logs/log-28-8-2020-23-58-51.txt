@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Mon Sep 28 2020 23:58:51 GMT+0800 (Singapore Standard Time)
+------------------------------------------------------
+
+Modified files:
+* resources/views/admin/userbiodata.blade.php
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

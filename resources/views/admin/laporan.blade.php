@@ -1,6 +1,6 @@
 @extends('admin.master.layouts')
-@section('content')
-<div class="main-content-container container-fluid px-4 mb-4">
+@section("content")
+ <div class="main-content-container container-fluid px-4 mb-4">
     <!-- Page Header -->
     <div class="page-header row no-gutters py-4">
       <div class="col-12 col-sm-6 text-center text-sm-left mb-4 mb-sm-0">
@@ -25,18 +25,22 @@
               <th scope="col" class="border-0">Juru Parkir</th>
               <th scope="col" class="border-0">Status pakir</th>
               <th scope="col" class="border-0">Biaya</th>
+              <th scope="col" class="border-0">Action</th>
             </tr>
           </thead>
           
           <tbody>
-            @foreach($datakendaraan as $d)
+            @foreach($laporan as $p)
                 
             <tr> 
-              <td>{{$d->id_parkir}}</td>
-              <td>{{$d->UserKendaraan->noRegistrasi}}</td>
-              <td>{{$d->jukir}}</td>
-              <td>{{$d->stat_parkir}}</td>
-              <td>{{$d->biaya}}</td>
+              <td>{{$p->id_parkir}}</td>
+              <td>{{$p->UserKendaraan->noRegistrasi}}</td>
+              <td>{{$p->jukir}}</td>
+              <td>{{$p->stat_parkir}}</td>
+              <td>{{$p->biaya}}</td>
+              <td>
+              <button class="btn btn-success">Export File</button>
+              </td>
             </tr>
             
             @endforeach
