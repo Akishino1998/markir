@@ -114,45 +114,67 @@ class APIParkirController extends Controller
     }
     function serParkirIoT($idAlat,$id_rfid, $lat, $lng){
 
-        $data = UserJukir::all()->where("no_seri_alat",$idAlat)->first();
+        $data = UserJukir::all()->where("no_seri_alat",$idAlat);
+        // return $data->COUNT();
+        if($data->COUNT() != 0){
+            $idJukir = $data->first()->id;
+            // return $idJukir;
 
-        $idJukir = $data->id;
-
-        $dataKendaraan = UserKendaraan::all()->where("rfid_card",$id_rfid)->first();
-        $idKendaraan = $dataKendaraan->id_kendaraan;
-        
-        $lat = $lat;
-        $lng = $lng;
-        date_default_timezone_set("Asia/Kuala_Lumpur");
-        $date = new DateTime();
-        $data = Parkir::all()->where("id_kendaraan",$idKendaraan)->where("stat_parkir", "Parkir");
-        if(COUNT($data) == 0){
-            $parkir = new Parkir;
-            $parkir->id_kendaraan   = $idKendaraan;
-            $parkir->jukir          = $idJukir;
-            $parkir->tgl_masuk      = $date->format('Y-m-d H:i:s');
-            $parkir->stat_parkir    = "Parkir";
-            $parkir->lat            = $lat;
-            $parkir->lng            = $lng;
-            $parkir->save();
-            return "*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk."*".$dataKendaraan->seri."*".$dataKendaraan->warna."*#";
-        }else{
-            $parkir = $data->first();
-            $awal  = strtotime($parkir->tgl_masuk); //waktu awal
-            $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
-            $diff  = $akhir - $awal;
-            $biaya = RefJenisKendaraan::all()->where("id_ref_kendaraan",$parkir->UserKendaraan->jenis_kendaraan)->first();
-            // return $biaya;
-            $jam   = floor($diff / (60 * 60));
-            $menit = $diff - $jam * (60 * 60);
-            $biaya = $jam*$biaya->biaya_per_jam;
-
+            $dataKendaraan = UserKendaraan::all()->where("rfid_card",$id_rfid)->first();
+            $idKendaraan = $dataKendaraan->id_kendaraan;
             
-            $parkir->biaya_parkir = $biaya;
-            $parkir->stat_parkir    = "Sudah";
-            $parkir->tgl_keluar = $date->format('Y-m-d H:i:s');
-            $parkir->save();
-            return "*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk."*".$dataKendaraan->seri."*".$dataKendaraan->warna."*".$biaya."*#";
+            $lat = $lat;
+            $lng = $lng;
+            date_default_timezone_set("Asia/Kuala_Lumpur");
+            $date = new DateTime();
+            $data = Parkir::all()->where("id_kendaraan",$idKendaraan)->where("stat_parkir", "Parkir");
+            $dataParkir = [];
+
+            if(COUNT($data) == 0){
+                $parkir = new Parkir;
+                $parkir->id_kendaraan   = $idKendaraan;
+                $parkir->jukir          = $idJukir;
+                $parkir->tgl_masuk      = $date->format('Y-m-d H:i:s');
+                $parkir->stat_parkir    = "Parkir";
+                $parkir->lat            = $lat;
+                $parkir->lng            = $lng;
+                $parkir->save();
+
+                $x['plat'] = $dataKendaraan->noRegistrasi;
+                array_push($dataParkir, $x);
+                $res['parkir'] = $dataParkir;
+
+
+                $res['status'] = ['parkir'];
+                
+                return response($res);
+                return "*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk."*".$dataKendaraan->seri."*".$dataKendaraan->warna."*#";
+            }else{
+                $parkir = $data->first();
+                $awal  = strtotime($parkir->tgl_masuk); //waktu awal
+                $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
+                $diff  = $akhir - $awal;
+                $biaya = RefJenisKendaraan::all()->where("id_ref_kendaraan",$parkir->UserKendaraan->jenis_kendaraan)->first();
+                // return $biaya;
+                $jam   = floor($diff / (60 * 60));
+                $menit = $diff - $jam * (60 * 60);
+                $biaya = $jam*$biaya->biaya_per_jam;
+
+                
+                $parkir->biaya_parkir = $biaya;
+                $parkir->stat_parkir    = "Sudah";
+                $parkir->tgl_keluar = $date->format('Y-m-d H:i:s');
+                $parkir->save();
+
+                $x['plat'] = $dataKendaraan->noRegistrasi;
+                array_push($dataParkir, $x);
+                $res['parkir'] = $dataParkir;
+
+
+                $res['status'] = ['keluar'];
+                return response($res);
+                return "*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk."*".$dataKendaraan->seri."*".$dataKendaraan->warna."*".$biaya."*#";
+            }
         }
     }
 }

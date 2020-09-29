@@ -17,7 +17,7 @@
                     <div class="font-size-lg timeline-content text-muted" id="kendaraan">
                         KT 5155I - Honda Beat
                     </div>
-
+                    
                 </center>
             </div>
         </div>
