@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Sep 29 2020 03:03:32 GMT+0800 (Singapore Standard Time)
+------------------------------------------------------
+
+Modified files:
+* resources/views/admin/master/layouts.blade.php
+
+
+Created files:
+* .autogit/logs/log-29-8-2020-2-33-25.txt
+* app/Http/Controllers/LaporanController.php
+* resources/views/admin/laporan.blade.php
+
+
+Deleted files:
+
+
+Renamed files:

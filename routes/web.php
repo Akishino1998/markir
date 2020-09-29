@@ -154,4 +154,8 @@ Route::prefix('admin')->group(function () {
     Route::get("/admin", "AdminController@admin");
     Route::get("/hapus/{id}", "AdminController@hapus");
     route::post("/tambah","AdminController@store");
+
+    // LAPORAN
+    // Route::get("/laporan","LaporanController@index");
+    Route::get("/laporan/{status}","LaporanController@laporan");
 });
