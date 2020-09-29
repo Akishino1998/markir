@@ -39,7 +39,9 @@
               <td>{{$p->stat_parkir}}</td>
               <td>{{$p->biaya}}</td>
               <td>
+                <a href="/admin/laporanpdf/Sudah">
               <button class="btn btn-success">Export File</button>
+                </a>
               </td>
             </tr>
             

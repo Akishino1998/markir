@@ -158,4 +158,5 @@ Route::prefix('admin')->group(function () {
     // LAPORAN
     // Route::get("/laporan","LaporanController@index");
     Route::get("/laporan/{status}","LaporanController@laporan");
+    Route::get("/laporanpdf/{status}","LaporanController@laporanpdf");
 });
