@@ -143,10 +143,11 @@ class APIParkirController extends Controller
                 $x['plat'] = $dataKendaraan->noRegistrasi;
                 array_push($dataParkir, $x);
                 $res['parkir'] = $dataParkir;
+                return $dataKendaraan->noRegistrasi."*";
 
-
-                $res['status'] = ['parkir'];
-                
+                $res['status'] = "parkir";
+                return response()
+                ->json(['plat' => $dataKendaraan->noRegistrasi, 'status' => 'Parkir']);
                 return response($res);
                 return "*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk."*".$dataKendaraan->seri."*".$dataKendaraan->warna."*#";
             }else{
@@ -157,8 +158,8 @@ class APIParkirController extends Controller
                 $biaya = RefJenisKendaraan::all()->where("id_ref_kendaraan",$parkir->UserKendaraan->jenis_kendaraan)->first();
                 // return $biaya;
                 $jam   = floor($diff / (60 * 60));
-                $menit = $diff - $jam * (60 * 60);
-                $biaya = $jam*$biaya->biaya_per_jam;
+                $menit = floor(($diff - $jam * (60 * 60))/60);
+                $biaya = $jam*$biaya->biaya_per_jam+$biaya->biaya_per_jam;
 
                 
                 $parkir->biaya_parkir = $biaya;
@@ -170,8 +171,10 @@ class APIParkirController extends Controller
                 array_push($dataParkir, $x);
                 $res['parkir'] = $dataParkir;
 
-
-                $res['status'] = ['keluar'];
+                return $biaya."#";
+                $res['status'] = "keluar";
+                return response()
+                ->json(['plat' => $dataKendaraan->noRegistrasi, 'status' => 'Keluar']);
                 return response($res);
                 return "*".$dataKendaraan->noRegistrasi."*".$dataKendaraan->RefMerk1->merk."*".$dataKendaraan->seri."*".$dataKendaraan->warna."*".$biaya."*#";
             }

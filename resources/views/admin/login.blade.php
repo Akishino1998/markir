@@ -36,7 +36,7 @@
               <div class="col-lg-3 col-md-5 auth-form mx-auto my-auto">
                 <div class="card">
                   <div class="card-body">
-                    <img class="auth-form__logo d-table mx-auto mb-3" src="{{ asset('images/logo/markir.PNG') }}" alt="Shards Dashboards - Register Template">
+                    <img class="auth-form__logo d-table mx-auto mb-3" src="{{ asset('images/logo/Markir.png') }}" alt="Shards Dashboards - Register Template">
                     <center>
                       <span class="auth-form__title text-center"> Admin Mari Parkir</span>
                     </center>
