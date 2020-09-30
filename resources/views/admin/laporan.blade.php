@@ -42,6 +42,9 @@
                 <a href="/admin/laporanpdf/Sudah">
               <button class="btn btn-success">Export File</button>
                 </a>
+                <a href="/admin/viewlaporan">
+                  <button class="btn btn-success">View Laporan</button>
+                    </a>
               </td>
             </tr>
             

@@ -130,7 +130,7 @@
     <!-- end Chart Pie Jukir -->
   </div>
 </div>
-{{-- Chart parkir terkini --}}
+{{-- Chart kendaraan masuk dan keluar --}}
 <script>
   var label = [];
   @foreach($a as $item)
@@ -165,7 +165,7 @@
         }
   });
  </script>
- {{-- END chart Parkir Terkini --}}
+ {{-- END chart Kendaraan Masuk --}}
 
 <script>
  var ctx = document.getElementById('myChart2').getContext('2d');

@@ -2,19 +2,7 @@
   <head>
     <meta charset="utf-8">
     <title>Markir</title>
-    <style>
-      .body {
-            position: relative;
-            width: 21cm;  
-            height: 29.7cm; 
-            margin: 0 auto; 
-            color: #001028;
-            background: #FFFFFF; 
-            font-family: Arial, sans-serif; 
-            font-size: 12px; 
-            font-family: Arial;
-          }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/pdf.css')}}" media="all" />
   </head>
   <body>
     <header class="clearfix">
@@ -48,6 +36,9 @@
           @endforeach
         </tbody>
       </table>
+      <a href="/admin/viewlaporan">
+        <button class="btn btn-success">Export File</button>
+          </a>
       <div id="notices">
         <div>Skripsi:</div>
         <div class="notice">Sistem Informasi Manajemen Parkir Pada Sistem Parkir Otomatis Berbasis Web</div>

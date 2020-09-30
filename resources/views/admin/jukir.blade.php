@@ -15,7 +15,7 @@
               </div> --}}
             </div>
             <!-- End Page Header -->
-        <!-- Transaction History Table -->
+        <!-- tabel verifikasi jukir -->
         <div class="row">
           <div class="col">
             <div class="card card-small mb-4">
@@ -96,7 +96,7 @@
             </div>
           </div>
         </div>
-            <!-- End Transaction History Table -->
+       <!-- End Tabel verifikasi -->
   </div>
 
 {{-- MODAL TAMPILAN VERIFIKASI --}}

@@ -160,4 +160,9 @@ Route::prefix('admin')->group(function () {
     // Route::get("/laporan","LaporanController@index");
     Route::get("/laporan/{status}","LaporanController@laporan");
     Route::get("/laporanpdf/{status}","LaporanController@laporanpdf");
+
+
+
+    Route::get("/viewlaporan","LaporanpdfController@viewlaporan");
+    Route::get("/viewlaporan","LaporanpdfController@laporanpdf");
 });
