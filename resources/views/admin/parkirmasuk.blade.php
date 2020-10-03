@@ -63,9 +63,10 @@
 
           </div>
           <!-- End Page Header -->
-        <!-- Transaction History Table -->
+        <!-- API MAPS -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZkuHiUXYr2MnjteerrkucCJ8wUCu5-zo&callback&language=id&region=ID"></script>
-<!-- Modal -->
+        {{-- END Maps --}}
+        <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
