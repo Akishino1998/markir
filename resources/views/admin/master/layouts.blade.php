@@ -123,7 +123,7 @@ if (session_status() == PHP_SESSION_NONE) {
                       <a class="dropdown-item" href="/biodata"><i class="material-icons">account_circle</i> Profile</a>
                       <a class="dropdown-item" href="/edit-biodata"><i class="material-icons">edit</i> Edit Profile</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item text-danger" href="/admin/login">
+                      <a class="dropdown-item text-danger" href="/admin/logout">
                         <i class="material-icons text-danger"></i> Logout </a>   
                     </div>
                   </li>

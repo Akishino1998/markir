@@ -9,7 +9,7 @@ class UserBiodata extends Model
     protected $table = "user_biodata";
     protected $primaryKey = "id_biodata";
     public $timestamps = false;
-    protected $fillable = ['username','nama','tgl_lahir','no_hp','email','foto'];
+    protected $fillable = ['id_biodata','username','nama','tgl_lahir','no_hp','email','foto'];
     public function UserAkun()
     {
         return $this->hasMany('App\UserAkun','username','id');

@@ -17,6 +17,7 @@ class UserBiodataController extends Controller
     public function index()
     {
         $userAkun = UserAkun::all();
+        return $userAkun->first()->UserBiodata;
         $userKendaraan = UserKendaraan::all();
         // return $userKendaraan->where('username','4')->COUNT();
         // return $user_biodata;

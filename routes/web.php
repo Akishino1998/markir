@@ -63,7 +63,10 @@ Route::get('/user', function () {
     return redirect("/User");
 });
 Route::prefix('admin')->group(function () {
-        
+    Route::get('/logout',function(){
+        session()->flush();
+        return redirect("/admin/login");
+    }); 
     Route::get('/', function () {
         return redirect("/admin/home");
     });
@@ -89,7 +92,7 @@ Route::prefix('admin')->group(function () {
     Route::get("/userJukir/verifikasi/{id}/{status}","JukirController@setStatus");
 
     // UNTUK MENAMPILAN DATA USER
-    Route::get("/userbiodata", "UserbiodataController@index");
+    Route::get("/userbiodata", "UserBiodataController@index");
 
     // UNTUK DATA VALIDASI USER 
     Route::get('userbiodata/verifikasi/{id}/{status}','UserbiodataController@verifikasi');
