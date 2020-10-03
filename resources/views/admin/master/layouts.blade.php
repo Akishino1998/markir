@@ -34,7 +34,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
                 <a class="navbar-brand w-100 mr-0" href="/admin/home" style="line-height: 25px;">
                   <div class="d-table m-auto">
-                    <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{ asset('images/logo/markir.PNG') }}" alt="Shards Dashboard">
+                    <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{ asset('images/logo/Markir.png') }}" alt="Shards Dashboard">
                   </div>
                 </a>
                 <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
