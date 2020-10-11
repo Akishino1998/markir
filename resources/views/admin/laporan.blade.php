@@ -9,7 +9,18 @@
         <h3 class="page-title">Data Seluruh Parkir</h3>
       </div>
     </div>
-    <!-- End Page Header -->
+  <div class="btn-group btn-group-sm btn-group-toggle d-inline-flex mb-4 mb-sm-0 mx-auto" role="group" aria-label="Page actions">
+    <div class="form-group col-md-6"> 
+          <a href="/admin/laporanpdf/Sudah">
+            <button type="button" class="btn btn-accent">
+              <i class="material-icons">account_circle</i> 
+              Export Data
+            </button>
+          </a>
+      </div>
+  </div>
+
+      <!-- End Page Header -->
 <!-- Transaction History Table -->
 <div class="row">
   <div class="col">

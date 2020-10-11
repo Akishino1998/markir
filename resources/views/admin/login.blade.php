@@ -61,9 +61,6 @@
                     </form>
                   </div>
                 </div>
-                <div class="auth-form__meta d-flex mt-4">
-                  <a href="forgot-password.html">Forgot your password?</a>
-                </div>
               </div>
             </div>
           </div>

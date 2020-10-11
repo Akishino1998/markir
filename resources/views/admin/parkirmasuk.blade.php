@@ -44,7 +44,7 @@
                 <div class="form-group col-md-6">
                     
                     <label for="displayEmail">Data Parkir Masuk</label>
-                <a href="/admin/datakendaraan/Parkir">
+                        <a href="/admin/datakendaraan/Parkir">
                     <button type="button" class="btn btn-accent">
                       <i class="material-icons">account_circle</i> 
                       Lihat Data
@@ -60,7 +60,6 @@
                 <input type="search" class="input-sm form-control" name="end" placeholder="Search" id="analytics-overview-date-range-2">
               </div>
             </div> --}}
-
           </div>
           <!-- End Page Header -->
         <!-- API MAPS -->
