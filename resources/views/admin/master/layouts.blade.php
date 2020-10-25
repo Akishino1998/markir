@@ -91,7 +91,11 @@ if (session_status() == PHP_SESSION_NONE) {
                     
                   </div>
                 </li>
+<<<<<<< HEAD
                 {{-- <li class="nav-item dropdown">
+=======
+                {{--  <li class="nav-item dropdown">
+>>>>>>> ccfe45e338c2bdc3a49595e2175cb57298a9bcd6
                   <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="material-icons">&#xE2C7;</i>
                     <span>Laporan</span>
@@ -99,7 +103,11 @@ if (session_status() == PHP_SESSION_NONE) {
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item " href="/admin/laporan/Sudah">Laporan Parkir</a>
                   </div>
+<<<<<<< HEAD
                 </li> --}}
+=======
+                </li>  --}}
+>>>>>>> ccfe45e338c2bdc3a49595e2175cb57298a9bcd6
               </ul>
             </div>
           </aside>
