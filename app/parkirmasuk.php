@@ -18,4 +18,8 @@ class parkirmasuk extends Model
     {
         return $this->hasOne('App\UserJukir','username','jukir');
     }
+    public function UserJukir2()
+    {
+        return $this->belongsTo('App\UserJukir','jukir','id');
+    }
 }

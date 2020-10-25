@@ -1,6 +1,4 @@
 @extends('jukir.layouts.master')
-
-
 @section('konten')
     <div class="row">
         <div class="col-xl-12">
@@ -62,7 +60,6 @@
 </div>
 @endsection
 @section('js')
-{{-- <script src="{{ asset('dist/assets/js/pages/features/charts/apexcharts.js') }}"></script> --}}
 <script>
     var series = [];
     var labels = [];
@@ -75,7 +72,6 @@
     </script>
 @endforeach
 <script>
-    
     const primary = '#6993FF';
     const success = '#1BC5BD';
     const info = '#8950FC';
@@ -84,7 +80,6 @@
     const apexChart = "#chart_11";
 		var options = {
             series: series,
-            
 			chart: {
 				width: 500,
 				type: 'donut',
@@ -102,7 +97,6 @@
 			}],
             labels: labels
 		};
-
 		var chart = new ApexCharts(document.querySelector(apexChart), options);
 		chart.render();
 </script>

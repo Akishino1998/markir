@@ -44,7 +44,7 @@ class JukirController extends Controller
         $jukir->save();
         return redirect("/admin/jukir");
     }
-
+    
     //lihat mapsnya jukir
     function showJukir($username){
         $parkirmasuk   = parkirmasuk::all()->where("stat_parkir","Sudah")->where('jukir',$username);
@@ -66,7 +66,12 @@ class JukirController extends Controller
         $jukir->save();
         return redirect('/admin/jukir');
     }
-
+    function editNoSeri($no_seri,$id){
+        $jukir = UserJukir::find($id);
+        $jukir->no_seri_alat = $no_seri;
+        $jukir->save();
+        return 1;
+    }
 
 
 

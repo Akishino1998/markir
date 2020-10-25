@@ -98,7 +98,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </li>
                                             <li class="menu-item  {{ (request()->is('jukir/riwayat-parkir')) ? 'menu-item-here' : '' }}">   
                                                 <a href="/jukir/riwayat-parkir" class="menu-link ">
-                                                    <span class="menu-text">Riwayar Parkir</span>
+                                                    <span class="menu-text">Riwayat Parkir</span>
                                                     <i class="menu-arrow"></i>
                                                 </a>
                                             </li>			

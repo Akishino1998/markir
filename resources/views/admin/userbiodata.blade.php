@@ -16,7 +16,7 @@
               <div class="card-header border-bottom">
                 <h6 class="m-0">Active Users</h6>
               </div>
-              <div class="card-body p-0 pb-3 text-center">
+              <div class="card-body">
                 <table class="table mb-0">
                   <thead class="bg-light">
                     <tr>
@@ -28,11 +28,13 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php  $i=1; ?>
+                    
                     @foreach($userAkun as $u)
                         
                     <tr>
                       
-                      <td>{{$u->UserBiodata->id_biodata}}</td>
+                      <td>{{$i++}}</td>
                       <td>{{$u->username}}</td>
                       <td>{{$u->UserBiodata->nama}}</td>
                       <td>
@@ -98,12 +100,12 @@
                                           </div>
                                           <div class="col-md-12">
                                             <div class="card card-small mb-4">
-                                              <img src="{{ asset('profile') }}/{{ $u->UserBiodata->foto }}" alt="">
+                                              <img src="{{ asset('profile') }}/{{ $u->UserBiodata->foto }}" width="100%">
                                             </div>
                                           </div>
-                                          <div class="col-lg-8">
+                                          <div class="col-lg-12">
                                             <div class="card card-small mb-6">
-                                              <img src="{{ asset('profile') }}/{{ $u->UserBiodata->ktp }}" alt="">
+                                              <img src="{{ asset('profile') }}/{{ $u->UserBiodata->ktp }}" width="100%">
                                             </div>
                                           </div>
                                         </div>
@@ -158,7 +160,7 @@
                                                 </a>
                                                 <br>
                                                 <br>                                                
-                                                <a href="/admin/infouser/{{$u->username}}">
+                                                <a href="/admin/infouser/{{$u->id}}">
                                                   <button type="button" class="btn btn-accent">
                                                     Lihat Kendaraan
                                                   </button>

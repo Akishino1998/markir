@@ -14,12 +14,12 @@ class KendaraanController extends Controller
     function index(){
         $jukir = session('id-jukir');
         $mytime = Carbon::now();
-        $data = Parkir::latest()->where('jukir',$jukir)->where("stat_parkir","Parkir")->where('tgl_masuk',">=",$mytime->toDateString())->get();
-        
-        // return $data;
+        $data2 = Parkir::latest()->where('jukir',$jukir)->where("stat_parkir","Parkir")->where('tgl_masuk',">=",$mytime->toDateString())->get();
+        $data = Parkir::latest()->where('jukir',$jukir)->where("stat_parkir","Parkir")->get();
+        // return $data; 
         $jenis = RefJenisKendaraan::all();
         // return $data;
-        return view('jukir.parkir-terkini', compact('data','jenis'));
+        return view('jukir.parkir-terkini', compact('data','jenis','data2'));
     }   
     function showJenis($id){
         

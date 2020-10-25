@@ -18,4 +18,8 @@ class Parkir extends Model
     {
         return $this->hasOne('App\UserJukir','id','jukir');
     }
+    public function UserJukir2()
+    {
+        return $this->belogsTo('App\UserJukir','jukir','id');
+    }
 }

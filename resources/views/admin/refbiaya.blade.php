@@ -86,10 +86,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php  $i=1; ?>
             @foreach($refbiaya as $j)
                 
             <tr>
-              <td>{{$j->id_ref_kendaraan}}</td>
+              <td>{{$i++}}</td>
               <td>{{$j->jenis_kendaraan}}</td>
               <td>{{$j->biaya_per_jam}}</td>
               <td>

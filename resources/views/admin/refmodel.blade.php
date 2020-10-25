@@ -85,9 +85,10 @@
             </tr>
           </thead>
           <tbody>
+            <?php  $i=1; ?>
             @foreach($refmodel as $j)  
             <tr>
-              <td>{{$j->id_model}}</td>
+              <td>{{$i++}}</td>
               <td>{{$j->model}}</td>
               <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">

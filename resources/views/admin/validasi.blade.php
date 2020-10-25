@@ -28,10 +28,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php  $i=1; ?>
             @foreach($validasi as $v)
                 
             <tr>
-              <td>{{$v->id}}</td>
+              <td>{{$i++}}</td>
               <td>{{$v->username}}</td>
               <td>{{$v->nama}}</td>
               <td>

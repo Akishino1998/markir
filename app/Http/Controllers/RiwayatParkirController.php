@@ -6,25 +6,37 @@ use Illuminate\Http\Request;
 use App\RefJenisKendaraan;
 use App\Parkir;
 use Barryvdh\DomPDF\Facade as PDF;
-
+use DateTIme;
 class RiwayatParkirController extends Controller
 {
     function index(){
+        
         $jukir = session('id-jukir');
         $jenis = RefJenisKendaraan::all();
-        $data = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Sudah")->get();
-        // return $data->first()->UserKendaraan;
-        // return $data->first()->UserKendaraan;
-        // return $data;
-        return view('jukir.riwayat-parkir',compact('jenis','jukir','data'));
+        date_default_timezone_set("Asia/Kuala_Lumpur");
+        $date = new DateTime();
+
+        $data = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Sudah")->where('tgl_keluar',"LIKE","".$date->format('Y-m-d')."%")->paginate(10);
+        $data2 = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Sudah")->where('tgl_keluar',"LIKE","".$date->format('Y-m-d')."%")->get();
+        if(isset($_GET["tgl"])){
+            $date = new DateTime($_GET['tgl']);
+            $data = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Sudah")->where('tgl_keluar',"LIKE","".$date->format('Y-m-d')."%")->paginate(10);
+            $data2 = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Sudah")->where('tgl_keluar',"LIKE","".$date->format('Y-m-d')."%")->get();
+        }
+        return view('jukir.riwayat-parkir',compact('jenis','jukir','data','data2'));
 
     }
-    function showJenis($id){
+    function showAll(){ 
         $jukir = session('id-jukir');
         $jenis = RefJenisKendaraan::all();
-        $data = Parkir::all()->where("jukir",$jukir)->where("stat_parkir","Sudah");
-        // return $data->first()->UserKendaraan;
-        return view('riwayat-jenis',compact('jenis','jukir','data','id'));
+        date_default_timezone_set("Asia/Kuala_Lumpur");
+        $date = new DateTime();
+
+        $data = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Sudah")->where('tgl_keluar',"LIKE","".$date->format('Y-m-d')."%")->paginate(10);
+        $data2 = Parkir::latest()->where("jukir",$jukir)->where("stat_parkir","Sudah")->where('tgl_keluar',"LIKE","".$date->format('Y-m-d')."%")->get();
+        
+        return view('jukir.riwayat-parkir',compact('jenis','jukir','data','data2'));
+
     }
     function showDate(Request $request){
         // return $request;

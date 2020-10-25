@@ -23,6 +23,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
   </head>
 
   <body class="h-100">
@@ -74,7 +75,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   </a>
                 </li>
               </ul>
-              <h6 class="main-sidebar__nav-title">Templates</h6>
+              <h6 class="main-sidebar__nav-title">Data</h6>
               <ul class="nav nav--no-borders flex-column">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
@@ -90,7 +91,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     
                   </div>
                 </li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="material-icons">&#xE2C7;</i>
                     <span>Laporan</span>
@@ -98,7 +99,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item " href="/admin/laporan/Sudah">Laporan Parkir</a>
                   </div>
-                </li>
+                </li> --}}
               </ul>
             </div>
           </aside>
@@ -113,6 +114,103 @@ if (session_status() == PHP_SESSION_NONE) {
               <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
                
                 <ul class="navbar-nav border-left flex-row border-right ml-auto">
+                  @php 
+
+                    use App\Http\Controllers\NotifController; 
+                    $jukir = NotifController::getNotifJukir();
+                    $user = NotifController::getNotifUser();
+                    $kendaraan = NotifController::getNotifKendaraan();
+                  @endphp
+                  {{-- notif kendaraan --}}
+                  <li class="nav-item border-right dropdown notifications">
+                    <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <div class="nav-link-icon__wrapper">
+                        <i class="material-icons">time_to_leave</i>
+                        <span class="badge badge-pill badge-danger">{{ $kendaraan->COUNT() }}</span>
+                      </div>
+                    </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink" style="display: none;">
+                      @if ($kendaraan->COUNT() > 0)
+                        <div class="dropdown-item notification__all text-center"> Kendaraan User Yang Belum Diverifikasi</div> 
+                      @else
+                        <div class="dropdown-item notification__all text-center"> Semua Kendaraan Sudah Diverifikasi</div>
+                      @endif
+                      @foreach ($kendaraan as $item)
+                        <a class="dropdown-item" href="/admin/infokendaraan/{{ $item->UserAkun->id }}">
+                          <div class="row px-3">
+                            <div class="user-teams__image col-2 col-sm-1 col-lg-2 p-0 my-auto">
+                              <img class="rounded" src="{{ asset('kendaraan') }}/{{ $item->foto }}">
+                            </div>
+                            <div class="col user-teams__info pl-3">
+                              <h6 class="m-0">{{ $item->noRegistrasi }} ({{ $item->RefMerk2->merk }} {{ $item->seri }})</h6>
+                              <span class="" style="color:black;">{{ $item->UserAkun->UserBiodata->nama }} - {{ $item->UserAkun->UserBiodata->no_hp }}</span>
+                            </div>
+                          </div>
+                        </a>
+                      @endforeach
+                    </div>
+                  </li>
+                  {{-- notifikasi user --}}
+                  <li class="nav-item border-right dropdown notifications">
+                    <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <div class="nav-link-icon__wrapper">
+                        <i class="material-icons">account_box</i>
+                        <span class="badge badge-pill badge-danger">{{ $user->COUNT() }}</span>
+                      </div>
+                    </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink" style="display: none;">
+                      @if ($user->COUNT() > 0)
+                        <div class="dropdown-item notification__all text-center"> Pengguna Yang Belum Diverifikasi</div> 
+                      @else
+                        <div class="dropdown-item notification__all text-center"> Semua Pengguna Sudah Diverifikasi</div>
+                      @endif
+                      @foreach ($user as $item)
+                        <a class="dropdown-item" href="/admin/userbiodata">
+                          <div class="row px-3">
+                            <div class="user-teams__image col-2 col-sm-1 col-lg-2 p-0 my-auto">
+                              <img class="rounded" src="{{ asset('profile') }}/{{ $item->UserBiodata->foto }}">
+                            </div>
+                            <div class="col user-teams__info pl-3">
+                              <h6 class="m-0">{{ $item->UserBiodata->nama }} ({{ $item->username }})</h6>
+                              <span class="" style="color:black;">{{ $item->UserBiodata->no_hp }}</span>
+                            </div>
+                          </div>
+                        </a>
+                      @endforeach
+                    </div>
+                  </li>
+                  {{-- notifikasi jukir --}}
+                  <li class="nav-item border-right dropdown notifications">
+                    <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <div class="nav-link-icon__wrapper">
+                        <i class="material-icons">directions_walk</i>
+                        <span class="badge badge-pill badge-danger">{{ $jukir->COUNT() }}</span>
+                      </div>
+                    </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink" style="display: none;">
+                      @if ($jukir->COUNT() > 0)
+                        <div class="dropdown-item notification__all text-center"> Juru Parkir Belum Diverifikasi</div> 
+                      @else
+                        <div class="dropdown-item notification__all text-center"> Semua Juru Parkir Sudah Diverifikasi</div>
+                      @endif
+                      @foreach ($jukir as $item)
+                        <a class="dropdown-item" href="/admin/jukir">
+                          <div class="row px-3">
+                            <div class="user-teams__image col-2 col-sm-1 col-lg-2 p-0 my-auto">
+                              <img class="rounded" src="{{ asset('foto-user-jukir') }}/{{ $item->UserJukirBiodata->foto }}">
+                            </div>
+                            <div class="col user-teams__info pl-3">
+                              <h6 class="m-0">{{ $item->UserJukirBiodata->nama }} ({{ $item->username }})</h6>
+                              <span class="" style="color:black;">{{ $item->UserJukirBiodata->no_hp }}</span>
+                            </div>
+                          </div>
+                        </a>
+                      @endforeach
+                    </div>
+                  </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                       <span>Hi admin</span>
@@ -120,13 +218,14 @@ if (session_status() == PHP_SESSION_NONE) {
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-small">
-                      <a class="dropdown-item" href="/biodata"><i class="material-icons">account_circle</i> Profile</a>
-                      <a class="dropdown-item" href="/edit-biodata"><i class="material-icons">edit</i> Edit Profile</a>
-                      <div class="dropdown-divider"></div>
+                      {{-- <a class="dropdown-item" href="/biodata"><i class="material-icons">account_circle</i> Profile</a> --}}
+                      {{-- <a class="dropdown-item" href="/edit-biodata"><i class="material-icons">edit</i> Edit Profile</a> --}}
+                      {{-- <div class="dropdown-divider"></div> --}}
                       <a class="dropdown-item text-danger" href="/admin/logout">
                         <i class="material-icons text-danger"></i> Logout </a>   
                     </div>
                   </li>
+                  
                 </ul>
                 <nav class="nav">
                   <a href="#" class="nav-link nav-link-icon toggle-sidebar  d-inline d-lg-none text-center " data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
@@ -168,7 +267,13 @@ if (session_status() == PHP_SESSION_NONE) {
     <script src="{{asset ('js/scripts/extras.1.1.0.min.js') }}"></script>
     <script src="{{asset ('js/scripts/shards-dashboards.1.1.0.min.js') }}"></script>
     <script src="{{asset ('js/scripts/shards-dashboards.1.1.0.js') }}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
     {{-- <script src="{{asset ('js/scripts/app/app-analytics-overview.1.1.0.min.js') }}"></script> --}}
   </body>
 </html>
+<script>
+  $(document).ready( function () {
+    $('table').DataTable();
+} );
+</script>
 @yield('js')

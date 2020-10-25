@@ -23,7 +23,7 @@
                     <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
                         <div class="d-flex flex-center mb-15">
                             <a href="/jukir/">
-                                <img src="{{ asset('images/logo/markir.PNG') }}" class="max-h-100px" alt=""/>
+                                <img src="{{ asset('images/logo/Markir.png') }}" class="max-h-100px" alt=""/>
                             </a>
                         </div>
                         <!--end::Login Header-->

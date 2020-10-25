@@ -36,7 +36,7 @@ class AuthController extends Controller
                     session(['no_hp-jukir'=> $user->UserJukirBiodata->no_hp]);
                     session(['status-jukir'=> $user->status]);
                     // return 1;
-                    if($user->no_seri_alat == "-"){
+                    if($user->no_seri_alat == "-" || $user->no_seri_alat == "NULL"){
                         return redirect("/jukir/masukkan-seri-alat/".$user->id)->with("alert",'1');
                     }else{
                         return redirect('/jukir')->with('alert','1'); //benar

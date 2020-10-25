@@ -80,6 +80,11 @@
                             <button type="button" class="btn btn-primary" onclick="showJukir({{ $j->id }})">
                               <i class="fa fa-eye" aria-hidden="true"></i>
                             </button>
+                            @if ($j->no_seri_alat != "-" && $j->no_seri_alat != NULL && $j->no_seri_alat != "")
+                              <button type="button" class="btn btn-success" onclick="editNoSeri({{ $j->no_seri_alat }},{{ $j->id }})">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                              </button>
+                            @endif
                             <button type="button" class="btn btn-danger" onclick="nonAktifJukir({{ $j->id }})">
                               <i class="material-icons">delete</i>
                             </button>
@@ -168,7 +173,30 @@
 </div>
 @endsection
 @section('js')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
   <script>
+    function editNoSeri(no_seri_alat,id){
+      swal({
+        text: 'Edit No. Seri Alat Juru Parkir...',
+        content: "input",
+        inputValue:"awdaw",
+        button: {
+          text: "Simpan!",
+          closeModal: false,
+        },
+      })
+      .then(name => {
+        if (!name) throw null;
+        return fetch(`/admin/jukirEditNoSeri/${name}/${id}`);
+      })
+      .then(results  => {
+        if(results.status){
+          swal.stopLoading();
+          location.reload();
+
+        }
+      });
+    }
     function showData(id, status = false){
       $("#exampleModal").modal('show');
       fetch('/admin/getInfoJukir/'+id)

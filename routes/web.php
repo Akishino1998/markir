@@ -15,12 +15,18 @@ use Illuminate\Support\Facades\Route;
 Route::post('riwayat/date','RiwayatParkirController@showDate');
 Route::post('riwayat/date/{id}','RiwayatParkirController@showDateJenis');
 
+Route::get('/', function(){
+    return redirect("/user");
+});
+Route::get('/getLokasi', function(){
+    return view('table');
+});
 Route::get('/create-password/{password}', function($password){
     return password_hash ($password, PASSWORD_DEFAULT );
 });
 
 Route::get("/setParkir","APIParkirController@setParkir");
-Route::post("/setParkir","APIParkirController@index2");
+Route::post("/setParkir","APIParkirController@index2"); 
 Route::get("/s/{no_alat}/{id_rfid}/{lat}/{lng}","APIParkirController@serParkirIoT");
 Route::get("/setLokasi/{idAlat}/{lat}/{lng}","APIParkirController@lokasiKendaraan");
 Route::get("/setParkirIoT/{no_alat}/{id_rfid}/{lat}/{lng}","APIParkirController@serParkirIoT");
@@ -40,7 +46,7 @@ Route::prefix('jukir')->group(function () {
 
     Route::get('/jukir', function () {
         return redirect('/dasboard');
-    }); 
+    });  
     Route::get('/logout',function(){
         session()->flush();
         return redirect("/jukir/login");
@@ -52,8 +58,8 @@ Route::prefix('jukir')->group(function () {
     Route::get('/parkir-terkini/jenis/{id}','KendaraanController@showJenis');
 
     Route::get('/riwayat-parkir','RiwayatParkirController@index');
-    Route::get('/riwayat/jenis/{id}','RiwayatParkirController@showJenis');
-
+    Route::get('/riwayat-parkir/full','RiwayatParkirController@showAll');
+    Route::get('/setLokasiAlat/{alat}/{lat}/{lng}','APIParkirController@setLokasiAlat');
 
 });
 Route::get('/Admin', function () {
@@ -90,12 +96,12 @@ Route::prefix('admin')->group(function () {
     Route::get("/showJukir/{username}", "JukirController@showJukir");
     Route::get("/getInfoJukir/{id}","JukirController@getInfoJukir");
     Route::get("/userJukir/verifikasi/{id}/{status}","JukirController@setStatus");
-
+    Route::get("/jukirEditNoSeri/{no_seri}/{id}","JukirController@editNoSeri");
     // UNTUK MENAMPILAN DATA USER
     Route::get("/userbiodata", "UserBiodataController@index");
 
     // UNTUK DATA VALIDASI USER 
-    Route::get('userbiodata/verifikasi/{id}/{status}','UserbiodataController@verifikasi');
+    Route::get('userbiodata/verifikasi/{id}/{status}','UserBiodataController@verifikasi');
 
     //UNTUK VALIDASI KENDARAAN USER
     Route::get("/infokendaraan/verifikasi/{id}/{status}",'UserBiodataController@verifikasiKendaraan');
@@ -128,7 +134,7 @@ Route::prefix('admin')->group(function () {
 
     // Data Kendaraan
     // Route::get("/datakendaraan", "DatakendaraanController@datakendaraan");
-    Route::get("/datakendaraan/{status}", "DatakendaraanController@index");
+    Route::get("/datakendaraan/{status}", "DataKendaraanController@index");
 
     // Data Admin
     // Route::get("/admin", "AdminController@index");

@@ -88,10 +88,11 @@
           </thead>
           {{-- DELETE --}}
           <tbody>
+            <?php  $i=1; ?>
             @foreach($info as $j)
                 
             <tr>
-              <td>{{$j->id_merk}}</td>
+              <td>{{$i++}}</td>
               <td>{{$j->merk}}</td>
               <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">

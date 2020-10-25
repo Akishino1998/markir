@@ -78,7 +78,7 @@
       <div class="modal-body">
         <div class="card-header border-bottom text-center">
           <div class="mb-3 mx-auto">
-            <img class="rounded-circle" src="images/avatars/0.jpg" alt="User Avatar" width="110">
+            {{-- <img class="rounded-circle" src="images/avatars/0.jpg" alt="User Avatar" width="110"> --}}
           </div>
           <span id="namaPemilik"></span>
           <span id="plat" class="text-muted d-block mb-2"></span>
@@ -139,11 +139,11 @@
                         $awal  = strtotime($item->tgl_masuk); //waktu awal
                         $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
                         $diff  = $akhir - $awal;
-                                    
+                                     
                         $jam   = floor($diff / (60 * 60));
-                        $menit = $diff - $jam * (60 * 60);
+                        $menit = floor(($diff - $jam * (60 * 60))/60);
 
-                        $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
+                        $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam+$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
                       ?>
                       var biaya = '<?php echo $estimasi_biaya; ?>';
                       var durasi = '<?php echo $jam; ?>';
@@ -177,10 +177,11 @@
                         $awal  = strtotime($item->tgl_masuk); //waktu awal
                         $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
                         $diff  = $akhir - $awal;
+                                     
                         $jam   = floor($diff / (60 * 60));
-                        $menit = $diff - $jam * (60 * 60);
+                        $menit = floor(($diff - $jam * (60 * 60))/60);
 
-                        $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
+                        $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam+$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
                       ?>
                       var biaya = '<?php echo $estimasi_biaya; ?>';
                       var durasi = '<?php echo $jam; ?>';
@@ -215,11 +216,11 @@
                         $awal  = strtotime($item->tgl_masuk); //waktu awal
                         $akhir = strtotime($date->format('Y-m-d H:i:s')); //waktu akhir
                         $diff  = $akhir - $awal;
-                                    
+                                     
                         $jam   = floor($diff / (60 * 60));
-                        $menit = $diff - $jam * (60 * 60);
+                        $menit = floor(($diff - $jam * (60 * 60))/60);
 
-                        $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
+                        $estimasi_biaya = "Rp " . number_format($jam*$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam+$item->UserKendaraan->RefJenisKendaraan1->biaya_per_jam,2,',','.');
                       ?>
                       var biaya = '<?php echo $estimasi_biaya; ?>';
                       var durasi = '<?php echo $jam; ?>';

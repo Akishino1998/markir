@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\UserJukir;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // $jukir = UserJukir::latest()->where('status','N');
+        // View::share('jukir','1');
     }
 
     /**

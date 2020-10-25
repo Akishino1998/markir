@@ -119,20 +119,7 @@
               <td>{{$l->username}}</td>
               <td>{{$l->nama}}</td>
               <td>
-                <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">
-                  <a href="/admin/hapus/{{$l->id}}">
-                  <button type="button" class="btn btn-white">
-                    <i class="material-icons">edit</i>
-                  </button>
-                </a>
-                </div>
-                <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">
-                  <a href="/admin/hapus/{{$l->id}}">
-                  <button type="button" class="btn btn-white">
-                    <i class="material-icons">visibility</i>
-                  </button>
-                </a>
-                </div>
+             
                 <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">
                   <a href="/admin/hapus/{{$l->id}}">
                   <button type="button" class="btn btn-white">
