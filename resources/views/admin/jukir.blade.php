@@ -20,9 +20,9 @@
           <div class="col">
             <div class="card card-small mb-4">
               <div class="card-header border-bottom">
-                <h6 class="m-0">Active Users</h6>
+                <h6 class="m-0">Data Jukir</h6>
               </div>
-              <div class="card-body p-0 pb-3 text-center">
+              <div class="card-body">
                 <table class="table mb-0">
                   <thead class="bg-light">
                     <tr>

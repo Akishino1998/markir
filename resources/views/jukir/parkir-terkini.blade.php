@@ -204,7 +204,7 @@ function showMarkerParkir(titik){
           map: peta,
           label:'{{ $item->UserKendaraan->noRegistrasi }}',
           icon: "https://cdn.discordapp.com/attachments/701478331115241549/707636193604403270/eko.png"
-        });
+        }); 
         markers[i].addListener('click', function() {
             showMarker({{ $item->id_parkir }});
         });

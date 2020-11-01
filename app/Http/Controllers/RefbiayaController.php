@@ -45,5 +45,13 @@ class RefbiayaController extends Controller
         // return $request;
         return redirect("/admin/refbiaya");
     }
+    function edit(Request $request, $id){
+        $refbiaya = refbiaya::find($id);
+        $refbiaya->jenis_kendaraan = $request->jenis_kendaraan;
+        $refbiaya->biaya_per_jam = $request->biaya_per_jam;
+        $refbiaya->save();
+        return redirect("/admin/refbiaya");
+
+    }
 
 }

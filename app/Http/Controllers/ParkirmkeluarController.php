@@ -28,7 +28,7 @@ class ParkirmkeluarController extends Controller
             }
             
         }
-        // return $tb_parkir->first();
+        // return $tb_parkir;
         $jukir=UserJukir::all();
         $refbiaya=refbiaya::all();
         // return $jukir;

@@ -35,15 +35,19 @@ class InfoController extends Controller
     {
         // return $request;
         $this->validate($request,[
-            'id_merk'=>'required',
             'merk'=>'required'
         ]);
 
         RefMerk::create([
-            'id_merk' =>$request ->id_merk,
-            'merk' =>$request ->merk
+            'merk' =>$request->merk
         ]);
 
-        return redirect('/dmin/info');
+        return redirect('/admin/info');
+    }
+    function edit(Request $request, $id){
+        $merk = RefMerk::find($id);
+        $merk->merk = $request->merk;
+        $merk->save();
+        return redirect('/admin/info');
     }
 }

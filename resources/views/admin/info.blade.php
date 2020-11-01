@@ -34,16 +34,6 @@
                       <form  method="post" action="/admin/info">
                         {{ csrf_field() }}
                         <div class="form-group">
-                          <label for="exampleInputEmail1">No merek</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="No" name="id_merk" required >
-
-                          @if ($errors -> has('id_merk'))
-                            <div class="text-danger">
-                              {{$errors->first('id_merk')}}
-                            </div>
-                          @endif
-                        </div>
-                        <div class="form-group">
                           <label for="exampleInputPassword1">Merk Kendaraan</label>
                           <input type="text" class="form-control" id="exampleInputPassword1" placeholder="merk"  name="merk" required>
                           @if ($errors -> has('merk'))
@@ -77,7 +67,7 @@
     <div class="card card-small mb-2">
       <div class="card-header border-bottom">
         
-      <div class="card-body p-0 pb-3 text-center">
+      <div class="card-body">
         <table class="table mb-0">
           <thead class="bg-light">
             <tr>
@@ -96,11 +86,39 @@
               <td>{{$j->merk}}</td>
               <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Table row actions">
+                    <button type="button" class="btn btn-white" data-toggle="modal" data-target="#exampleModal2{{$j->id_merk}}">
+                      <i class="material-icons">edit</i>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal2{{$j->id_merk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <form action="/admin/info/edit/{{$j->id_merk}}" method="post">
+                            @csrf
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Edit Merk Kendaraan</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <label for="">Merk</label>
+                              <input type="text" class="form-control" name="merk" value="{{$j->merk}}">
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                
                   <a href="/admin/info/hapus/{{$j->id_merk}}">
-                  <button type="button" class="btn btn-white">
-                    <i class="material-icons">delete</i>
-                  </button>
-                </a>
+                    <button type="button" class="btn btn-white">
+                      <i class="material-icons">delete</i>
+                    </button>
+                  </a>
                 </div>
               </td>
             </tr>

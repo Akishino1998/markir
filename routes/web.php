@@ -112,11 +112,13 @@ Route::prefix('admin')->group(function () {
     // UNTUK PARKIR REF BIAYA
     Route::get("/refbiaya", "RefbiayaController@index");
     Route::get("/refbiaya/hapus/{id_ref_kendaraan}", "RefbiayaController@hapus");
+    Route::post("/refbiaya/edit/{id_ref_kendaraan}", "RefbiayaController@edit");
     Route::post("/refbiaya", "RefbiayaController@store");
 
     // UNTUK PARKIR INFO
     Route::get("/info", "InfoController@index");
     Route::get("/info/hapus/{id_merk}", "InfoController@hapus");
+    Route::post("/info/edit/{id}","InfoController@edit");
     route::post("/info","InfoController@store");
 
     // UNTUK PARKIR REF MODEL
